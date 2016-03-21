@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString * start = @"start";
+    NSLog(@"%@" , start);
     // Do any additional setup after loading the view, typically from a nib.
 }
 
