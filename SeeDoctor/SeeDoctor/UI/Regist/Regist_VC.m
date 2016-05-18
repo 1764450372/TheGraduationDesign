@@ -10,6 +10,9 @@
 #import "ASRequest.h"
 #import "Define.h"
 #import "SystemUse.h"
+
+#define regist @"http://1.hospitalapp.applinzi.com/user/UserServlet?action=login&tel=%@&name=%@mail=%@&gender=%@&sex=%@"
+
 @interface Regist_VC ()<UITextFieldDelegate>
 
 @end
@@ -74,6 +77,8 @@
         [alertController addAction:cancelAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }else{
+//        http://1.hospitalapp.applinzi.com/user/UserServlet?action=login&tel=1&name=123&email=123&gender=123&sex=男
+        NSString  * ursl = [NSString  stringWithFormat:regist ,_telLabel,_nameLabel,_emailLabel,_ageLabel,_sexLabel];
         [ASRequest requestWithUrl:@"" Complete:^(NSData *data) {
             NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
             [SystemUse setUserName:dic[USER_NAME]];

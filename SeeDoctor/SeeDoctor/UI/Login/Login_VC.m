@@ -12,6 +12,9 @@
 #import "ASRequest.h"
 #import "Define.h"
 #import "SystemUse.h"
+
+#define checkPassword @"http://1.hospitalapp.applinzi.com/user/UserServletaction=regist&tel=%@&pwd=%@"
+#define userInformation @"http://1.hospitalapp.applinzi.com/user/UserServletaction=userInformation&tel=%@&pwd=%@"
 @interface Login_VC ()<UITabBarControllerDelegate,UITextFieldDelegate>
 
 @end
@@ -43,79 +46,103 @@
 }
 
 - (IBAction)loginTouch:(id)sender {
-//    if (_userName.text.length == 0 ) {
-//        [self identifyTouch:nil];
-//        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"用户名不能为空，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
-//            ;
-//        }];
-//        [alertController addAction:cancelAction];
-//        [self presentViewController:alertController animated:YES completion:nil];
-//    }else if(_password.text.length == 0 ) {
-//        [self identifyTouch:nil];
-//        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"密码不能为空，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
-//            ;
-//        }];
-//        [alertController addAction:cancelAction];
-//        [self presentViewController:alertController animated:YES completion:nil];
-//    }else if(_identifyLabel.text.length == 0 ) {
-//        [self identifyTouch:nil];
-//        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"验证码不能为空，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
-//            ;
-//        }];
-//        [alertController addAction:cancelAction];
-//        [self presentViewController:alertController animated:YES completion:nil];
-//    }else if([_identifyLabel.text isEqualToString:_identifyButton.titleLabel.text] == NO) {
-//        [self identifyTouch:nil];
-//        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"验证码错误，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
-//            ;
-//        }];
-//        [alertController addAction:cancelAction];
-//        [self presentViewController:alertController animated:YES completion:nil];
-//    }else{
-//        [ASRequest requestWithUrl:@"" Complete:^(NSData *data) {
-//            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
-//            [SystemUse setUserName:dic[USER_NAME]];
-//            [SystemUse setUserPwd:dic[PWD]];
-//            [SystemUse setUserTel:dic[TEL]];
-//            [SystemUse setUserEmail:dic[EMAIL]];
-//            [SystemUse setUserSex:dic[SEX]];
-//
-//            HHTabBarViewController *tabBarController=[[HHTabBarViewController alloc]init];
-//            tabBarController.delegate = self;
-//            [tabBarController setcontroller:@"Order_VC" title:@"预约" imageNamed:@"search.png" selectedImageName:@"search_.png"];
-//            [tabBarController setcontroller:@"History_VC" title:@"历史" imageNamed:@"history.png" selectedImageName:@"history_.png"];
-//            [tabBarController setcontroller:@"Setting_VC" title:@"我的" imageNamed:@"more.png" selectedImageName:@"more_.png"];
-//            tabBarController.selectedViewController=tabBarController.viewControllers[0];
-//            [self presentViewController:tabBarController animated:YES completion:nil];
-//        } faile:^(NSError *error) {
-//            [self identifyTouch:nil];
-//            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"网络错误" preferredStyle:UIAlertControllerStyleAlert];
-//            UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
-//                ;
-//            }];
-//            [alertController addAction:cancelAction];
-//            [self presentViewController:alertController animated:YES completion:nil];
-//        }];
-//    }
-//    
-    HHTabBarViewController *tabBarController=[[HHTabBarViewController alloc]init];
-    tabBarController.delegate = self;
-    [tabBarController setcontroller:@"Order_VC" title:@"预约" imageNamed:@"search.png" selectedImageName:@"search_.png"];
-    [tabBarController setcontroller:@"History_VC" title:@"历史" imageNamed:@"history.png" selectedImageName:@"history_.png"];
-    [tabBarController setcontroller:@"Setting_VC" title:@"我的" imageNamed:@"more.png" selectedImageName:@"more_.png"];
-    tabBarController.selectedViewController=tabBarController.viewControllers[0];
-    [self presentViewController:tabBarController animated:YES completion:nil];
+    if (_userName.text.length == 0 ) {
+        [self identifyTouch:nil];
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"用户名不能为空，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+            ;
+        }];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }else if(_password.text.length == 0 ) {
+        [self identifyTouch:nil];
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"密码不能为空，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+            ;
+        }];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }else if(_identifyLabel.text.length == 0 ) {
+        [self identifyTouch:nil];
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"验证码不能为空，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+            ;
+        }];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }else if([_identifyLabel.text isEqualToString:_identifyButton.titleLabel.text] == NO) {
+        [self identifyTouch:nil];
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"验证码错误，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+            ;
+        }];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }else{
+        NSString * url = [NSString stringWithFormat:checkPassword,_userName,_password];
+        [ASRequest requestWithUrl:url Complete:^(NSData *data) {
+            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+            
+            if([dic[@"isExist"] isEqualToString:@"yes"]){
+                NSString * url1 = [NSString stringWithFormat:checkPassword,_userName,_password];
+                [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
+                    NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+                    [SystemUse setUserName:dict[USER_NAME]];
+                    [SystemUse setUserPwd:dict[PWD]];
+                    [SystemUse setUserTel:dict[TEL]];
+                    [SystemUse setUserEmail:dict[EMAIL]];
+                    [SystemUse setUserSex:dict[SEX]];
+                    
+                    HHTabBarViewController *tabBarController=[[HHTabBarViewController alloc]init];
+                    tabBarController.delegate = self;
+                    [tabBarController setcontroller:@"Order_VC" title:@"预约" imageNamed:@"search.png" selectedImageName:@"search_.png"];
+                    [tabBarController setcontroller:@"History_VC" title:@"历史" imageNamed:@"history.png" selectedImageName:@"history_.png"];
+                    [tabBarController setcontroller:@"Setting_VC" title:@"我的" imageNamed:@"more.png" selectedImageName:@"more_.png"];
+                    tabBarController.selectedViewController=tabBarController.viewControllers[0];
+                    [self presentViewController:tabBarController animated:YES completion:nil];
+                } faile:^(NSError *error) {
+                    [self identifyTouch:nil];
+                    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"网络错误" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+                        ;
+                    }];
+                    [alertController addAction:cancelAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }];
+                
+                
+            }else{
+                UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:dic[@"information"] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+                    ;
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        } faile:^(NSError *error) {
+            [self identifyTouch:nil];
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"网络错误" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+                ;
+            }];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }];
+    }
+    
+//    HHTabBarViewController *tabBarController=[[HHTabBarViewController alloc]init];
+//    tabBarController.delegate = self;
+//    [tabBarController setcontroller:@"Order_VC" title:@"预约" imageNamed:@"search.png" selectedImageName:@"search_.png"];
+//    [tabBarController setcontroller:@"History_VC" title:@"历史" imageNamed:@"history.png" selectedImageName:@"history_.png"];
+//    [tabBarController setcontroller:@"Setting_VC" title:@"我的" imageNamed:@"more.png" selectedImageName:@"more_.png"];
+//    tabBarController.selectedViewController=tabBarController.viewControllers[0];
+//    [self presentViewController:tabBarController animated:YES completion:nil];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
-
-//http://localhost:8080/HospitalApp/user/UserServlet?action=userInformation&tel=1&pwd=123
+ 
 
 @end
