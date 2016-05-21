@@ -57,5 +57,13 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:SEX];
 }
 
++(void) setUserGerder:(NSString *)gerder{
+    [[NSUserDefaults standardUserDefaults] setValue:gerder forKey:GENDER];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(NSString *) getUserGerder{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:GENDER];
+}
 
 @end

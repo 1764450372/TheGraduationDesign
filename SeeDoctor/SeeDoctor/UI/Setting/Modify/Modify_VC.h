@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *pwdLabel;
 @property (weak, nonatomic) IBOutlet UITextField *sureLabel;
 - (IBAction)click:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *username;
 
 @end

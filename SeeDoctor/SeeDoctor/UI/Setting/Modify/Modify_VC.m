@@ -10,6 +10,7 @@
 #import "SystemUse.h"
 #import "Define.h"
 #import "ASRequest.h"
+
 @interface Modify_VC ()<UITextFieldDelegate>
 
 @end
@@ -18,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,6 +27,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [_telLabel setEnabled: NO];
+    _username.text = [SystemUse getUserName];
+    _telLabel.text = [SystemUse getUserTel];
+    _emailLabel.text = [SystemUse getUserEmail];
+    _pwdLabel.text = [SystemUse getUserPwd];
+}
  
 
 - (IBAction)click:(id)sender {
@@ -65,16 +73,14 @@
         [alertController addAction:cancelAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }else{
-        [ASRequest requestWithUrl:@"" Complete:^(NSData *data) {
-            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
-            [SystemUse setUserName:dic[USER_NAME]];
-            [SystemUse setUserPwd:dic[PWD]];
-            [SystemUse setUserTel:dic[TEL]];
-            [SystemUse setUserEmail:dic[EMAIL]];
-            [SystemUse setUserSex:dic[SEX]];
-            [self dismissViewControllerAnimated:YES completion:nil];
+        NSString * url = [NSString stringWithFormat:updateUserInformation,[SystemUse getUserTel],_username.text,_emailLabel.text,[SystemUse getUserGerder],[SystemUse getUserSex],_pwdLabel.text];
+        [ASRequest requestWithUrl:url Complete:^(NSData *data) {
+            [SystemUse setUserPwd:_pwdLabel.text];
+            [SystemUse setUserName:_username.text];
+            [SystemUse setUserEmail:_emailLabel.text];
+            [self.navigationController popViewControllerAnimated:YES];
         } faile:^(NSError *error) {
-            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"网络错误" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"修改失败" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
                 ;
             }];

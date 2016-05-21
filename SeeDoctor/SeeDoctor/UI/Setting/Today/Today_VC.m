@@ -9,31 +9,42 @@
 #import "Today_VC.h"
 #import "Define.h"
 #import "DetailedToday_VC.h"
+#import "SystemUse.h"
+#import "ASRequest.h"
+
+
 @interface Today_VC ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
 @implementation Today_VC{
     UITableView * m_tableView;
-    NSArray * datas;
+    NSMutableArray * datas;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    datas = [[NSArray alloc] init];
     m_tableView = [[UITableView alloc] init];
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
-    datas = [[NSArray alloc] init];
-    datas = @[
-              @{@"doctorName":@"李医生",@"userName":@"小王",@"department":@"神经科", @"dataTime":@"2016年5月30日",@"tel":@"12314153241234"},
-              @{@"doctorName":@"李医生",@"userName":@"小王",@"department":@"神经科", @"dataTime":@"2016年5月30日",@"tel":@"12314153241234"},
-              @{@"doctorName":@"李医生",@"userName":@"小王",@"department":@"神经科", @"dataTime":@"2016年5月30日",@"tel":@"12314153241234"},
-              @{@"doctorName":@"李医生",@"userName":@"小王",@"department":@"神经科", @"dataTime":@"2016年5月30日",@"tel":@"12314153241234"}];
-    m_tableView.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, 100 * [datas count]  );
+    datas = [[NSMutableArray alloc] init];
+    m_tableView.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -100   );
     m_tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:m_tableView];
+    NSString * url1 = [NSString stringWithFormat:subscribeSearch,[SystemUse getUserTel]];
+    [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
+        NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+        [datas addObjectsFromArray:arr];
+        [m_tableView reloadData];
+    } faile:^(NSError *error) {
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"网络错误" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+            ;
+        }];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,21 +72,22 @@
     }
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(5, 0,[UIScreen mainScreen].bounds.size.width - 10, 90)];
     view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"2.jpg"]];
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 80, 80)];
-    if ([datas[indexPath.row][SEX] isEqualToString:@"1"]) {
-        imageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"boy.jpg"]];
-    }else{
-        imageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"girl.jpg"]];
-    }
+//    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 80, 80)];
+//    if ([datas[indexPath.row][SEX] isEqualToString:@"1"]) {
+//        imageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"boy.jpg"]];
+//    }else{
+//        imageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"girl.jpg"]];
+//    }
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(110, 5, [UIScreen mainScreen].bounds.size.width - 100, 80)];
-    NSString * str = @"";
-    if ([datas[indexPath.row][DIFFERENT] isEqualToString:@"1"]) {
-        str = @"(专家)";
-    }
-    label.text =[NSString stringWithFormat:@"%@%@%@/%@",datas[indexPath.row][DOCTOR_NAME],str,datas[indexPath.row][PEOPLE_NUM],datas[indexPath.row][ORDER_NUM]] ;
+//    NSString * str = @"";
+//    if ([datas[indexPath.row][DIFFERENT] isEqualToString:@"1"]) {
+//        str = @"(专家)";
+//    }
+//    label.text =[NSString stringWithFormat:@"%@%@%@/%@",datas[indexPath.row][DOCTOR_NAME],str,datas[indexPath.row][PEOPLE_NUM],datas[indexPath.row][ORDER_NUM]] ;
+    label.text =datas[indexPath.row][@"doctor_id"];
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     
-    [view addSubview:imageView];
+//    [view addSubview:imageView];
     [view addSubview:label];
     [cell addSubview:view];
     cell.backgroundColor = [UIColor clearColor];

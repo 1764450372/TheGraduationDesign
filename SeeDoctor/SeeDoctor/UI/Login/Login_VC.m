@@ -13,8 +13,6 @@
 #import "Define.h"
 #import "SystemUse.h"
 
-#define checkPassword @"http://1.hospitalapp.applinzi.com/user/UserServletaction=regist&tel=%@&pwd=%@"
-#define userInformation @"http://1.hospitalapp.applinzi.com/user/UserServletaction=userInformation&tel=%@&pwd=%@"
 @interface Login_VC ()<UITabBarControllerDelegate,UITextFieldDelegate>
 
 @end
@@ -79,20 +77,21 @@
         [alertController addAction:cancelAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }else{
-        NSString * url = [NSString stringWithFormat:checkPassword,_userName,_password];
+        NSString * url = [NSString stringWithFormat:checkPassword,_userName.text,_password.text];
         [ASRequest requestWithUrl:url Complete:^(NSData *data) {
-            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+            NSArray * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
             
-            if([dic[@"isExist"] isEqualToString:@"yes"]){
-                NSString * url1 = [NSString stringWithFormat:checkPassword,_userName,_password];
+            if([dic[0][@"loginSuccess"] isEqualToString:@"yes"]){
+                NSString * url1 = [NSString stringWithFormat:userInformation,_userName.text,_password.text];
                 [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
-                    NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
-                    [SystemUse setUserName:dict[USER_NAME]];
-                    [SystemUse setUserPwd:dict[PWD]];
-                    [SystemUse setUserTel:dict[TEL]];
-                    [SystemUse setUserEmail:dict[EMAIL]];
-                    [SystemUse setUserSex:dict[SEX]];
-                    
+                    NSArray * dict = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+                    [SystemUse setUserName:dict[0][USER_NAME]];
+                    [SystemUse setUserPwd:dict[0][PWD]];
+                    [SystemUse setUserTel:dict[0][TEL]];
+                    [SystemUse setUserEmail:dict[0][EMAIL]];
+                    [SystemUse setUserSex:dict[0][SEX]];
+                    [SystemUse setUserGerder:dict[0][GENDER]];
+
                     HHTabBarViewController *tabBarController=[[HHTabBarViewController alloc]init];
                     tabBarController.delegate = self;
                     [tabBarController setcontroller:@"Order_VC" title:@"预约" imageNamed:@"search.png" selectedImageName:@"search_.png"];
@@ -112,7 +111,7 @@
                 
                 
             }else{
-                UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:dic[@"information"] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"用户名或密码错误" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
                     ;
                 }];

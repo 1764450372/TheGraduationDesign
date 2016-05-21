@@ -8,30 +8,39 @@
 
 #import "Department_VC.h"
 #import "Define.h"
+#import "ASRequest.h"
+
+
 @interface Department_VC ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
 @implementation Department_VC{
     UITableView * m_tableView;
-    NSArray * datas;
+    NSMutableArray * datas;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    datas = [[NSArray alloc] init];
+    datas = [[NSMutableArray alloc] init];
     m_tableView = [[UITableView alloc] init];
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
-    datas = [[NSArray alloc] init];
-    datas = @[
-              @{@"doctorNun":@"1",@"doctorName":@"王医生",@"different":@"0",@"peopleNum":@"9",@"orderNum":@"20",@"sex":@"0"},
-              @{@"doctorNun":@"2",@"doctorName":@"李医生",@"different":@"0",@"peopleNum":@"8",@"orderNum":@"20",@"sex":@"1"},
-              @{@"doctorNun":@"3",@"doctorName":@"赵医生",@"different":@"1",@"peopleNum":@"11",@"orderNum":@"20",@"sex":@"0"},
-              @{@"doctorNun":@"4",@"doctorName":@"吴医生",@"different":@"1",@"peopleNum":@"13",@"orderNum":@"20",@"sex":@"1"}
-              ];
-    m_tableView.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, 100 * [datas count]  );
+    NSString * url1 = [NSString stringWithFormat:doctorSearch,_departmentNum];
+    [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
+        NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+        [datas addObjectsFromArray:arr];
+        [m_tableView reloadData];
+    } faile:^(NSError *error) {
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"该部门暂无医生出诊" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+            ;
+        }];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }];
+    m_tableView.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -100   );
     m_tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:m_tableView];
 }
@@ -62,7 +71,7 @@
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(5, 0,[UIScreen mainScreen].bounds.size.width - 10, 90)];
     view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"2.jpg"]];
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 80, 80)];
-    if ([datas[indexPath.row][SEX] isEqualToString:@"1"]) {
+    if ([datas[indexPath.row][SEX] isEqualToString:@"男"]) {
         imageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"boy.jpg"]];
     }else{
         imageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"girl.jpg"]];
@@ -72,7 +81,7 @@
     if ([datas[indexPath.row][DIFFERENT] isEqualToString:@"1"]) {
          str = @"(专家)";
     }
-    label.text =[NSString stringWithFormat:@"%@%@%@/%@",datas[indexPath.row][DOCTOR_NAME],str,datas[indexPath.row][PEOPLE_NUM],datas[indexPath.row][ORDER_NUM]] ;
+    label.text =[NSString stringWithFormat:@"%@%@%@/%@",datas[indexPath.row][@"name"],str,datas[indexPath.row][PEOPLE_NUM],datas[indexPath.row][ORDER_NUM]] ;
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     [view addSubview:imageView];
     [view addSubview:label];

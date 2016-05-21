@@ -8,6 +8,7 @@
 
 #import "DetailedHistory_VC.h"
 #import "Define.h"
+#import "SystemUse.h"
 @interface DetailedHistory_VC ()
 
 @end
@@ -28,9 +29,9 @@
 }
 
 -(void) showViewWithDic:(NSDictionary *) dic{
-    self.userName.text = dic[USER_NAME];
-    self.doctorName.text = dic[DOCTOR_NAME];
-    self.information.text =[NSString stringWithFormat:@"结果：\n   %@",dic[INFORMATION]];
+    self.userName.text = [SystemUse getUserName];
+    self.doctorName.text = dic[@"doctor_id"];
+    self.information.text =[NSString stringWithFormat:@"结果：\n   %@",dic[@"result"]];
     self.information.editable = NO;
     self.dateTime.text = dic[DATE_TIME];
 }

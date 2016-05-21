@@ -11,7 +11,7 @@
                 <outlet property="emailLabel" destination="mWZ-o7-QaF" id="iyJ-iB-M0c"/>
                 <outlet property="nameLabel" destination="2fW-Qe-div" id="xQb-Xr-ssF"/>
                 <outlet property="pwdLabel" destination="LfF-E1-cGb" id="umN-fS-8Lq"/>
-                <outlet property="sexLabel" destination="BUk-s8-0GW" id="E7A-VP-clS"/>
+                <outlet property="segment" destination="jsM-xS-eij" id="eHU-8V-wJz"/>
                 <outlet property="telLabel" destination="4wD-O2-yS7" id="QrZ-dE-lMe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -88,15 +88,6 @@
                         <outlet property="delegate" destination="-1" id="vH4-n2-qvQ"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="BUk-s8-0GW">
-                    <rect key="frame" x="95" y="252" width="193" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="G6c-tL-Nx1"/>
-                    </connections>
-                </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮箱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SCN-TC-jLH">
                     <rect key="frame" x="33" y="388" width="67" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -147,6 +138,17 @@
                         <action selector="conformTouch:" destination="-1" eventType="touchUpInside" id="x8k-yH-bh8"/>
                     </connections>
                 </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="jsM-xS-eij">
+                    <rect key="frame" x="95" y="253" width="121" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="男"/>
+                        <segment title="女"/>
+                    </segments>
+                    <connections>
+                        <action selector="changeSex:" destination="-1" eventType="valueChanged" id="oSe-8l-4Jx"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="418" y="289"/>

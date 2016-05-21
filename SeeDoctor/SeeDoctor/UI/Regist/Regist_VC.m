@@ -11,21 +11,39 @@
 #import "Define.h"
 #import "SystemUse.h"
 
-#define regist @"http://1.hospitalapp.applinzi.com/user/UserServlet?action=login&tel=%@&name=%@mail=%@&gender=%@&sex=%@"
+
 
 @interface Regist_VC ()<UITextFieldDelegate>
 
 @end
 
-@implementation Regist_VC
+@implementation Regist_VC{
+    NSString * strSex;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    strSex = @"男";
+    _segment.selectedSegmentIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)changeSex:(id)sender {
+     if (_segment.selectedSegmentIndex == 0) {
+        strSex = @"男";
+        NSLog(@"男");
+    }else{
+        strSex = @"女";
+        NSLog(@"女");
+    }
 }
 
 - (IBAction)cancelTouch:(id)sender {
@@ -69,24 +87,26 @@
         }];
         [alertController addAction:cancelAction];
         [self presentViewController:alertController animated:YES completion:nil];
-    }else if(_sexLabel.text.length == 0 ) {
-        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"性别不能为空，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
-            ;
-        }];
-        [alertController addAction:cancelAction];
-        [self presentViewController:alertController animated:YES completion:nil];
     }else{
-//        http://1.hospitalapp.applinzi.com/user/UserServlet?action=login&tel=1&name=123&email=123&gender=123&sex=男
-        NSString  * ursl = [NSString  stringWithFormat:regist ,_telLabel,_nameLabel,_emailLabel,_ageLabel,_sexLabel];
-        [ASRequest requestWithUrl:@"" Complete:^(NSData *data) {
-            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
-            [SystemUse setUserName:dic[USER_NAME]];
-            [SystemUse setUserPwd:dic[PWD]];
-            [SystemUse setUserTel:dic[TEL]];
-            [SystemUse setUserEmail:dic[EMAIL]];
-            [SystemUse setUserSex:dic[SEX]];
-            [self dismissViewControllerAnimated:YES completion:nil];
+        NSString  * url = [NSString  stringWithFormat:regist ,_telLabel.text,_nameLabel.text,_emailLabel.text,_ageLabel.text,strSex,_pwdLabel.text];
+        [ASRequest requestWithUrl:url Complete:^(NSData *data) {
+            NSArray * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];            
+            if([dic[0][@"Successed"] isEqualToString:@"yes"]){
+                [SystemUse setUserName:_nameLabel.text];
+                [SystemUse setUserPwd:_pwdLabel.text];
+                [SystemUse setUserTel:_telLabel.text];
+                [SystemUse setUserEmail:_emailLabel.text];
+                [SystemUse setUserSex:strSex];
+                [SystemUse setUserGerder:_ageLabel.text];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }else{
+                UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"注册失败" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+                    ;
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
         } faile:^(NSError *error) {
              UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"网络错误" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {

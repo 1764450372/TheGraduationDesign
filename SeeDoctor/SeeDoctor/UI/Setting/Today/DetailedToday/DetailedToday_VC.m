@@ -8,6 +8,7 @@
 
 #import "DetailedToday_VC.h"
 #import "Define.h"
+#import "SystemUse.h"
 @interface DetailedToday_VC ()
 
 @end
@@ -30,10 +31,10 @@
 }
 
 -(void) showViewWithDic:(NSDictionary *) dic{
-    self.userName.text = dic[USER_NAME];
-    self.doctorName.text = dic[DOCTOR_NAME];
+    self.userName.text = [SystemUse getUserName];
+    self.doctorName.text = dic[@"doctor_id"];
     self.dateTime.text = dic[DATE_TIME];
-    [_qrCodeImageView setImage: [self createNonInterpolatedUIImageFormCIImage:[self createQRForString:dic[TEL]] withSize:250.0f]];
+    [_qrCodeImageView setImage: [self createNonInterpolatedUIImageFormCIImage:[self createQRForString:dic[@"id"]] withSize:250.0f]];
 } 
 #pragma mark - InterpolatedUIImage
 - (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat) size {

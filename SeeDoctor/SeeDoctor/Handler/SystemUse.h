@@ -30,4 +30,8 @@
 
 +(NSString *) getUserSex;
 
++(void) setUserGerder:(NSString *)gerder;
+
++(NSString *) getUserGerder;
+
 @end
