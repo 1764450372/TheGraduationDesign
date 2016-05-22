@@ -32,7 +32,7 @@
 
 -(void) showViewWithDic:(NSDictionary *) dic{
     self.userName.text = [SystemUse getUserName];
-    self.doctorName.text = dic[@"doctor_id"];
+    self.doctorName.text = dic[@"name"];
     self.dateTime.text = dic[DATE_TIME];
     [_qrCodeImageView setImage: [self createNonInterpolatedUIImageFormCIImage:[self createQRForString:dic[@"id"]] withSize:250.0f]];
 } 

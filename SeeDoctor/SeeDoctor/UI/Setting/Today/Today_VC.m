@@ -84,7 +84,7 @@
 //        str = @"(专家)";
 //    }
 //    label.text =[NSString stringWithFormat:@"%@%@%@/%@",datas[indexPath.row][DOCTOR_NAME],str,datas[indexPath.row][PEOPLE_NUM],datas[indexPath.row][ORDER_NUM]] ;
-    label.text =datas[indexPath.row][@"doctor_id"];
+    label.text =datas[indexPath.row][@"name"];
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     
 //    [view addSubview:imageView];
@@ -99,6 +99,7 @@
     DetailedToday_VC * detailedToday_vc = [[DetailedToday_VC alloc] init];
     NSDictionary * dic = datas [indexPath.row];
     detailedToday_vc.dict = dic;
+    detailedToday_vc.title = dic[@"name"];
     [self.navigationController pushViewController:detailedToday_vc animated:YES];
 }
 @end

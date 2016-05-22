@@ -26,7 +26,7 @@
 #define GENDER           @"gender"
 
 //注册
-#define regist @"http://1.hospitalapp.applinzi.com/user/UserServlet?action=regist&tel=%@&name=%@mail=%@&gender=%@&sex=%@&pwd=%@"
+#define regist @"http://1.hospitalapp.applinzi.com/user/UserServlet?action=regist&tel=%@&name=%@&email=%@&gender=%@&sex=%@&pwd=%@"
 //登录
 #define checkPassword   @"http://1.hospitalapp.applinzi.com/user/UserServlet?action=login&tel=%@&pwd=%@"
 //返回用户信息
@@ -41,8 +41,15 @@
 //预约表根据doctor_id 和日期查count------已经预约人数
 #define  subscribeCount @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=subscribeCount&doctor_id=%@&datetime=%@"
 
+//就诊号查询
+#define  subscribeCountForId  @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=subscribeCountForId"
+//预约表插入
+#define  subscribeInsert @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=subscribeInsert&id=%@&user_id=%@&doctor_id=%@&different=0&datetime=%@"
 //就诊结果查询
 #define  reslutSearch   @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=reslutSearch&user_id=%@"
+
+//查询大夫信息
+#define  doctorSearchById   @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=doctorSearchById&id=%@&page=1&count=5"
 
 //未就诊记录查询
 #define subscribeSearch  @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=subscribeSearch&user_id=%@&different=1"

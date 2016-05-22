@@ -74,7 +74,7 @@
     view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"2.jpg"]];
      UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, [UIScreen mainScreen].bounds.size.width - 10, 80)];
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = datas[indexPath.row][@"doctor_id"];;
+    label.text = datas[indexPath.row][@"name"];;
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
     [view addSubview:label];
     [cell addSubview:view];
@@ -87,7 +87,7 @@
     DetailedHistory_VC * detailedHistory_vc = [[DetailedHistory_VC alloc] init];
     NSDictionary * dic = datas [indexPath.row];
     detailedHistory_vc.dict = dic;
-    detailedHistory_vc.title = [NSString stringWithFormat:@"%@就诊结果",dic[@"doctor_id"]];
+    detailedHistory_vc.title = [NSString stringWithFormat:@"%@就诊结果",dic[@"name"]];
     [self.navigationController pushViewController:detailedHistory_vc animated:YES];
 }
 

@@ -86,6 +86,55 @@
 }
 
 - (IBAction)registSure:(id)sender {
-    NSLog(@"%@\n%@\n%@\n%@",_dic[@"id"],[SystemUse getUserTel],_dateLabel.text,[SystemUse getUserName]);
+    __block NSString * countNo = @"0";
+    NSString * url = [NSString stringWithFormat:subscribeCountForId];
+    [ASRequest requestWithUrl:url Complete:^(NSData *data) {
+        NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+        if (!arr) {
+            int num = (arc4random() % 10000);
+            countNo = [NSString stringWithFormat:@"%d", num];
+        }else{
+        countNo = [NSString stringWithFormat:@"%d",[arr[0][@"count"] integerValue]+1] ;
+        }
+        NSString * url1 = [NSString stringWithFormat:subscribeInsert,countNo,[SystemUse getUserTel],_dic[@"id"],_dateLabel.text];
+        [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"" message:@"预约成功" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+                ;
+            }];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        } faile:^(NSError *error) {
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"预约失败" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+                ;
+            }];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }];
+
+    } faile:^(NSError *error) {
+        int num = (arc4random() % 10000);
+        countNo = [NSString stringWithFormat:@"%d", num];
+        NSString * url1 = [NSString stringWithFormat:subscribeInsert,countNo,[SystemUse getUserTel],_dic[@"id"],_dateLabel.text];
+        [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"" message:@"预约成功" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+                ;
+            }];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        } faile:^(NSError *error) {
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"预约失败" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+                ;
+            }];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }];
+
+    }];
+    
+    
 }
 @end

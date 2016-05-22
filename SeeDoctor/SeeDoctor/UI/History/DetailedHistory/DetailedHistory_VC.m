@@ -30,7 +30,7 @@
 
 -(void) showViewWithDic:(NSDictionary *) dic{
     self.userName.text = [SystemUse getUserName];
-    self.doctorName.text = dic[@"doctor_id"];
+    self.doctorName.text = dic[@"name"];
     self.information.text =[NSString stringWithFormat:@"结果：\n   %@",dic[@"result"]];
     self.information.editable = NO;
     self.dateTime.text = dic[DATE_TIME];
