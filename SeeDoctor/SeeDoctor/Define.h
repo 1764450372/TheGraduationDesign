@@ -39,9 +39,7 @@
 //部门对应医生
 #define  doctorSearch  @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=doctorSearch&departmentNum=%@&page=1&count=5"
 //预约表根据doctor_id 和日期查count------已经预约人数
-#define  subscribeCount @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=subscribeCount&doctor_id=1&datetime=1"
-
-
+#define  subscribeCount @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=subscribeCount&doctor_id=%@&datetime=%@"
 
 //就诊结果查询
 #define  reslutSearch   @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=reslutSearch&user_id=%@"

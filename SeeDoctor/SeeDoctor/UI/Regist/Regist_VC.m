@@ -39,10 +39,8 @@
 - (IBAction)changeSex:(id)sender {
      if (_segment.selectedSegmentIndex == 0) {
         strSex = @"男";
-        NSLog(@"男");
     }else{
         strSex = @"女";
-        NSLog(@"女");
     }
 }
 
@@ -89,6 +87,7 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }else{
         NSString  * url = [NSString  stringWithFormat:regist ,_telLabel.text,_nameLabel.text,_emailLabel.text,_ageLabel.text,strSex,_pwdLabel.text];
+        url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [ASRequest requestWithUrl:url Complete:^(NSData *data) {
             NSArray * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];            
             if([dic[0][@"Successed"] isEqualToString:@"yes"]){

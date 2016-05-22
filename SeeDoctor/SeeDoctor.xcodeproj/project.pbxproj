@@ -47,6 +47,8 @@
 		FE7B679D1CDA94D500954020 /* HHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7B67981CDA94D500954020 /* HHNavigationController.m */; };
 		FE7B679E1CDA94D500954020 /* HHStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7B679A1CDA94D500954020 /* HHStartViewController.m */; };
 		FE7B679F1CDA94D500954020 /* HHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7B679C1CDA94D500954020 /* HHTabBarViewController.m */; };
+		FEA5C26C1CF11DEF00F3645F /* Subscribe_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C26A1CF11DEF00F3645F /* Subscribe_VC.m */; };
+		FEA5C26D1CF11DEF00F3645F /* Subscribe_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA5C26B1CF11DEF00F3645F /* Subscribe_VC.xib */; };
 		FEBC95751CDE22B500D7A057 /* history@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEBC956F1CDE22B500D7A057 /* history@2x.png */; };
 		FEBC95761CDE22B500D7A057 /* history_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEBC95701CDE22B500D7A057 /* history_@2x.png */; };
 		FEBC95771CDE22B500D7A057 /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEBC95711CDE22B500D7A057 /* more@2x.png */; };
@@ -133,6 +135,9 @@
 		FE7B679A1CDA94D500954020 /* HHStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHStartViewController.m; sourceTree = "<group>"; };
 		FE7B679B1CDA94D500954020 /* HHTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTabBarViewController.h; sourceTree = "<group>"; };
 		FE7B679C1CDA94D500954020 /* HHTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTabBarViewController.m; sourceTree = "<group>"; };
+		FEA5C2691CF11DEF00F3645F /* Subscribe_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscribe_VC.h; sourceTree = "<group>"; };
+		FEA5C26A1CF11DEF00F3645F /* Subscribe_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscribe_VC.m; sourceTree = "<group>"; };
+		FEA5C26B1CF11DEF00F3645F /* Subscribe_VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Subscribe_VC.xib; sourceTree = "<group>"; };
 		FEBC956F1CDE22B500D7A057 /* history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history@2x.png"; sourceTree = "<group>"; };
 		FEBC95701CDE22B500D7A057 /* history_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history_@2x.png"; sourceTree = "<group>"; };
 		FEBC95711CDE22B500D7A057 /* more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@2x.png"; sourceTree = "<group>"; };
@@ -375,6 +380,7 @@
 		FE7B67851CDA8EFD00954020 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				FEA5C2681CF11DC100F3645F /* Subscribe */,
 				FE3FF26D1CDDF2F300A73BA3 /* Department */,
 				FE7B678C1CDA8F4600954020 /* Order_VC.h */,
 				FE7B678D1CDA8F4600954020 /* Order_VC.m */,
@@ -407,6 +413,16 @@
 				FE7B679C1CDA94D500954020 /* HHTabBarViewController.m */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		FEA5C2681CF11DC100F3645F /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				FEA5C2691CF11DEF00F3645F /* Subscribe_VC.h */,
+				FEA5C26A1CF11DEF00F3645F /* Subscribe_VC.m */,
+				FEA5C26B1CF11DEF00F3645F /* Subscribe_VC.xib */,
+			);
+			path = Subscribe;
 			sourceTree = "<group>";
 		};
 		FEBC956E1CDE22B500D7A057 /* Tabbar */ = {
@@ -519,6 +535,7 @@
 				FE7B67901CDA8F4600954020 /* Order_VC.xib in Resources */,
 				FEBC95801CDE231F00D7A057 /* 2.jpg in Resources */,
 				FEBC957F1CDE231F00D7A057 /* 1.jpg in Resources */,
+				FEA5C26D1CF11DEF00F3645F /* Subscribe_VC.xib in Resources */,
 				FEBC95881CDE391700D7A057 /* icon.jpg in Resources */,
 				FEBC95811CDE231F00D7A057 /* 9.jpg in Resources */,
 				FEBC95851CDE33EE00D7A057 /* boy.jpg in Resources */,
@@ -568,6 +585,7 @@
 				FE7B678A1CDA8F2C00954020 /* Setting_VC.m in Sources */,
 				FE3FF2831CDDFDE500A73BA3 /* Today_VC.m in Sources */,
 				FE381A1D1CDEA879008324CC /* AFHTTPRequestOperationManager.m in Sources */,
+				FEA5C26C1CF11DEF00F3645F /* Subscribe_VC.m in Sources */,
 				FE381A201CDEA879008324CC /* AFSecurityPolicy.m in Sources */,
 				FE3FF2711CDDF3AE00A73BA3 /* Department_VC.m in Sources */,
 				FEF53AAB1CE24D8700011129 /* MBProgressHUD.m in Sources */,

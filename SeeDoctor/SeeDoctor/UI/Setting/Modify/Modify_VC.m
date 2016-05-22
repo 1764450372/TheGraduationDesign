@@ -74,6 +74,7 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }else{
         NSString * url = [NSString stringWithFormat:updateUserInformation,[SystemUse getUserTel],_username.text,_emailLabel.text,[SystemUse getUserGerder],[SystemUse getUserSex],_pwdLabel.text];
+        url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [ASRequest requestWithUrl:url Complete:^(NSData *data) {
             [SystemUse setUserPwd:_pwdLabel.text];
             [SystemUse setUserName:_username.text];

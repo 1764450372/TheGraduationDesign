@@ -20,11 +20,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SeeDoctor/UI/Regist/Regist_VC.m"
-            timestampString = "485538382.101093"
+            timestampString = "485577357.523729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-conformTouch:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SeeDoctor/UI/Regist/Regist_VC.m"
+            timestampString = "485577402.393779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-conformTouch:"
             landmarkType = "5">
             <Locations>
@@ -36,12 +52,12 @@
                   moduleName = "SeeDoctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhao/git/TheGraduationDesign/SeeDoctor/SeeDoctor/UI/Regist/Regist_VC.m"
-                  timestampString = "485538382.105155"
+                  timestampString = "485578912.229456"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "2709">
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "2759">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -51,11 +67,11 @@
                   moduleName = "SeeDoctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhao/git/TheGraduationDesign/SeeDoctor/SeeDoctor/UI/Regist/Regist_VC.m"
-                  timestampString = "485538382.105452"
+                  timestampString = "485578912.229697"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
                   offsetFromSymbolStart = "49">
                </Location>
             </Locations>

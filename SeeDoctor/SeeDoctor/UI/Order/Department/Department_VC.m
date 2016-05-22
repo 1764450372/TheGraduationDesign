@@ -9,7 +9,7 @@
 #import "Department_VC.h"
 #import "Define.h"
 #import "ASRequest.h"
-
+#import "Subscribe_VC.h"
 
 @interface Department_VC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -81,7 +81,8 @@
     if ([datas[indexPath.row][DIFFERENT] isEqualToString:@"1"]) {
          str = @"(专家)";
     }
-    label.text =[NSString stringWithFormat:@"%@%@%@/%@",datas[indexPath.row][@"name"],str,datas[indexPath.row][PEOPLE_NUM],datas[indexPath.row][ORDER_NUM]] ;
+    label.text =[NSString stringWithFormat:@"%@%@",datas[indexPath.row][@"name"],str];
+//        label.text =[NSString stringWithFormat:@"%@%@%@/%@",datas[indexPath.row][@"name"],str,datas[indexPath.row][PEOPLE_NUM],datas[indexPath.row][ORDER_NUM]] ;
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     [view addSubview:imageView];
     [view addSubview:label];
@@ -92,7 +93,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"预约%@  %@ %@ %@" ,self.departmentNum,datas[indexPath.row][DOCTOR_NUM],datas[indexPath.row][DOCTOR_NAME],datas[indexPath.row][DIFFERENT]);
-     
+    Subscribe_VC *subscribe = [[Subscribe_VC alloc] init];
+    subscribe.dic = datas[indexPath.row];
+    NSString * str = @"";
+    if ([datas[indexPath.row][DIFFERENT] isEqualToString:@"1"]) {
+        str = @"(专家)";
+    }
+    subscribe.title = [NSString stringWithFormat:@"%@%@",datas[indexPath.row][@"name"],str];
+    [self.navigationController pushViewController:subscribe animated:YES];
 }
 @end

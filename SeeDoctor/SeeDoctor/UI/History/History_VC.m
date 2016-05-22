@@ -30,9 +30,13 @@
     m_tableView.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -100   );
     m_tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:m_tableView];
+}
+
+-(void) viewWillAppear:(BOOL)animated{
     NSString * url1 = [NSString stringWithFormat:reslutSearch,[SystemUse getUserTel]];
     [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
         NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+        [datas removeAllObjects];
         [datas addObjectsFromArray:arr];
         [m_tableView reloadData];
     } faile:^(NSError *error) {
@@ -43,6 +47,7 @@
         [alertController addAction:cancelAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }];
+
 }
 
 - (void)didReceiveMemoryWarning {
