@@ -14,13 +14,13 @@ import domain.Department;
 public class DepartmentDao {
 
 	public SearchResult<Department> queryAll(int page,int NumPerPage) {//查询所有用户
-		int totalcount=DBUtil.getTotalCount("select count(id) from Department ");
+		int totalcount=DBUtil.getTotalCount("select count(id) from department ");
 		SearchResult<Department> sr=new SearchResult<Department>();
 		sr.setTotalcount(totalcount);
 		sr.setNumPerPage(NumPerPage);
 		page=page>sr.getTotalPage()?sr.getTotalPage():page;
 		sr.setNowpage(page);
-		String sql="select * from Department  limit "+(page-1)*NumPerPage+","+NumPerPage+" ";
+		String sql="select * from department  limit "+(page-1)*NumPerPage+","+NumPerPage+" ";
 		
 		List<Department> list=this.getList(sql);
 		sr.setList(list);

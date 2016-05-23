@@ -12,10 +12,17 @@
     <servlet-name>OtherServlet</servlet-name>
     <servlet-class>action.OtherServlet</servlet-class>
   </servlet>
-
+  <servlet>
+    <servlet-name>PCServlet</servlet-name>
+    <servlet-class>action.PCServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/user/UserServlet</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>PCServlet</servlet-name>
+    <url-pattern>/user/PCServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>OtherServlet</servlet-name>

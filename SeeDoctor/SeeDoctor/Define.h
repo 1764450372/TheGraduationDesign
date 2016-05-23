@@ -52,5 +52,5 @@
 #define  doctorSearchById   @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=doctorSearchById&id=%@&page=1&count=5"
 
 //未就诊记录查询
-#define subscribeSearch  @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=subscribeSearch&user_id=%@&different=1"
+#define subscribeSearch  @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=subscribeSearch&user_id=%@&different=0"
 #endif /* Define_h */

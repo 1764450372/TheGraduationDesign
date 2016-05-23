@@ -14,20 +14,52 @@ import domain.User;
 
 public class DoctorDao {
 
-	
+	public boolean login(String id,String pwd){
+		Connection conn=DBUtil.getConnection();
+		String sql="select * from doctor where id='"+id+"' and pwd='"+pwd+"'";
+		Statement st=null;
+		ResultSet rs=null;
+		try {
+			st=conn.createStatement();
+			rs=st.executeQuery(sql);
+			if(rs.next())
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBUtil.close(conn, st, rs);
+		}
+		return false;
+	}
 	public SearchResult<Doctor> queryAll(String departmentNum ,int page,int NumPerPage) {//查询所有用户
-		int totalcount=DBUtil.getTotalCount("select count(id) from Doctor where departmentNum ='"+departmentNum+"'");
+		int totalcount=DBUtil.getTotalCount("select count(id) from doctor where departmentNum ='"+departmentNum+"'");
 		SearchResult<Doctor> sr=new SearchResult<Doctor>();
 		sr.setTotalcount(totalcount);
 		sr.setNumPerPage(NumPerPage);
 		page=page>sr.getTotalPage()?sr.getTotalPage():page;
 		sr.setNowpage(page);
-		String sql="select * from Doctor   where departmentNum ='"+departmentNum+"' limit "+(page-1)*NumPerPage+","+NumPerPage+" ";
+		String sql="select * from doctor   where departmentNum ='"+departmentNum+"' limit "+(page-1)*NumPerPage+","+NumPerPage+" ";
 		
 		List<Doctor> list=this.getList(sql);
 		sr.setList(list);
 		return sr;
 	}
+	
+	public SearchResult<Doctor> queryById(String id ,int page,int NumPerPage) {//查询所有用户
+		int totalcount=DBUtil.getTotalCount("select count(id) from doctor where id ='"+id+"'");
+		SearchResult<Doctor> sr=new SearchResult<Doctor>();
+		sr.setTotalcount(totalcount);
+		sr.setNumPerPage(NumPerPage);
+		page=page>sr.getTotalPage()?sr.getTotalPage():page;
+		sr.setNowpage(page);
+		String sql="select * from doctor   where id ='"+id+"' limit "+(page-1)*NumPerPage+","+NumPerPage+" ";
+		
+		List<Doctor> list=this.getList(sql);
+		sr.setList(list);
+		return sr;
+	}
+	
+	
 	// 获得用户List
 	private List<Doctor> getList(String sql) { 
 		Connection conn = DBUtil.getConnection();

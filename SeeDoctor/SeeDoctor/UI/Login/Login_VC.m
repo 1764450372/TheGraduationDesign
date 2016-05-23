@@ -26,7 +26,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self identifyTouch:nil];
     if([SystemUse getUserName]){
-        _userName.text = [SystemUse getUserName];
+        _userName.text = [SystemUse getUserTel];
     }
     if([SystemUse getUserPwd]){
         _password.text = [SystemUse getUserPwd];

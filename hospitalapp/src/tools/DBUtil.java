@@ -28,12 +28,12 @@ public class DBUtil {
 		Connection conn=null;
 		try{
 			//本地数据库
-			Class.forName("com.mysql.jdbc.Driver");
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/hospitalApp","root","123456");
-			//服务器数据库
 //			Class.forName("com.mysql.jdbc.Driver");
-//	        String URL="jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_hospitalapp";
-//	        conn=DriverManager.getConnection(URL,"00n24zlo12","0z12liw11xl5mh5hyjxlm545hyxiiwi3hwl50wy3");
+//			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/hospitalApp","root","123456");
+			//服务器数据库
+			Class.forName("com.mysql.jdbc.Driver");
+	        String URL="jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_hospitalapp";
+	        conn=DriverManager.getConnection(URL,"00n24zlo12","0z12liw11xl5mh5hyjxlm545hyxiiwi3hwl50wy3");
 
 			return conn;
 		}catch(Exception e){

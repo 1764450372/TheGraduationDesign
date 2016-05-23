@@ -67,12 +67,10 @@ public class OtherServlet extends HttpServlet {
 			SearchResult<Department> sr = DepartmentDao.queryAll(
 					Integer.parseInt(page), Integer.parseInt(count));
 			DepartmentList = sr.getList();
-				
-			
+
 			JSONArray array = new JSONArray();
-			//有问题
-			
-			
+			// 有问题
+
 			for (Department bean : DepartmentList) {
 				JSONObject obj = new JSONObject();
 				try {
@@ -84,9 +82,8 @@ public class OtherServlet extends HttpServlet {
 				}
 				array.add(obj);
 			}
-			//有问题
+			// 有问题
 			out.write(array.toString());
-			
 
 		} else if (action.equals("doctorSearch")) {
 			DoctorDao DoctorDao = new DoctorDao();
@@ -122,7 +119,41 @@ public class OtherServlet extends HttpServlet {
 
 			}
 			out.write(array.toString());
-		} else if (action.equals("updateDoctor")) {
+		}else if (action.equals("doctorSearchById")) {
+			DoctorDao DoctorDao = new DoctorDao();
+
+			String id = request.getParameter("id");
+			String page = request.getParameter("page");
+			String count = request.getParameter("count");
+			SearchResult<Doctor> sr = DoctorDao.queryById(id, Integer.parseInt(page), Integer.parseInt(count));
+			DoctortList = sr.getList();
+			// System.out.println(DepartmentList.size());
+
+			JSONArray array = new JSONArray();
+			for (Doctor bean : DoctortList) {
+				JSONObject obj = new JSONObject();
+				try {
+
+					obj.put("id", bean.getId());
+					obj.put("name", bean.getName());
+
+					obj.put("pwd", bean.getPwd());
+					obj.put("sex", bean.getSex());
+					obj.put("different", bean.getDifferent());
+					obj.put("departmentNum", bean.getDepartmentNum());
+					obj.put("peopleNum", bean.getPeopleNum());
+					obj.put("orderNum", bean.getOrderNum());
+					// Share share = new Share();
+
+				} catch (Exception e) {
+
+				}
+				array.add(obj);
+
+			}
+			out.write(array.toString());
+		}  
+		else if (action.equals("updateDoctor")) {
 			String id = request.getParameter("id");
 			String peopleNum = request.getParameter("peopleNum");
 			DoctorDao DoctorDao = new DoctorDao();
@@ -142,6 +173,7 @@ public class OtherServlet extends HttpServlet {
 
 					obj.put("id", bean.getId());
 					obj.put("user_id", bean.getUser_id());
+					obj.put("name", bean.getName());
 					obj.put("doctor_id", bean.getDoctor_id());
 					obj.put("result", bean.getResult());
 					obj.put("datetime", bean.getDatetime());
@@ -168,6 +200,7 @@ public class OtherServlet extends HttpServlet {
 
 					obj.put("id", bean.getId());
 					obj.put("user_id", bean.getUser_id());
+					obj.put("name", bean.getName());
 					obj.put("doctor_id", bean.getDoctor_id());
 					obj.put("different", bean.getDifferent());
 					obj.put("datetime", bean.getDatetime());
@@ -180,7 +213,29 @@ public class OtherServlet extends HttpServlet {
 			}
 			out.write(array.toString());
 
-		} else if (action.equals("subscribeInsert")) {
+		} else if (action.equals("subscribeCount")) {
+			
+			String doctor_id = request.getParameter("doctor_id");
+			String datetime = request.getParameter("datetime");
+			SubscribeDao SubscribeDao = new SubscribeDao();
+			int count = SubscribeDao.queryByIdAndDatetime(doctor_id, datetime);
+			JSONArray array = new JSONArray();
+			JSONObject obj = new JSONObject();
+			obj.put("count", count);
+			array.add(obj);
+			out.write(array.toString());
+		} else if (action.equals("subscribeCountForId")) {
+			
+			SubscribeDao SubscribeDao = new SubscribeDao();
+			int count = SubscribeDao.queryByIdCount();
+			JSONArray array = new JSONArray();
+			JSONObject obj = new JSONObject();
+			obj.put("count", count);
+			array.add(obj);
+			out.write(array.toString());
+
+		}
+		else if (action.equals("subscribeInsert")) {
 
 			SubscribeDao SubscribeDao = new SubscribeDao();
 			String id = request.getParameter("id");

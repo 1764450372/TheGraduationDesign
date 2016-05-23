@@ -1,8 +1,10 @@
 package domain;
 
+
 public class Result {
 	private int id;
 	private String user_id;
+	private String name;
 	private String doctor_id;
 	private String result;
 	private String datetime;
@@ -37,6 +39,12 @@ public class Result {
 	}
 	public void setDoctor_id(String doctor_id) {
 		this.doctor_id = doctor_id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

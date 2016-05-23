@@ -3,6 +3,7 @@ package domain;
 public class Subscribe {
 
 	private String id;
+	private String name;
 	private String user_id;
 	private String doctor_id;
 	private String different;
@@ -36,5 +37,11 @@ public class Subscribe {
 	}
 	public void setDatetime(String datetime) {
 		this.datetime = datetime;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }

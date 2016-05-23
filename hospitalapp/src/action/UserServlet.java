@@ -67,6 +67,29 @@ public class UserServlet extends HttpServlet {
 			}
 			array.add(obj);
 			out.write(array.toString());
+		}else if (action.equals("PcLogin"))// 登陆
+		{
+			String tel = request.getParameter("id");
+			String pwd = request.getParameter("pwd");
+
+			UserDao userDao = new UserDao();
+			boolean loginSuccess = userDao.login(tel, pwd);
+
+			System.out.println(loginSuccess);
+			JSONArray array = new JSONArray();
+			JSONObject obj = new JSONObject();
+			try {
+				if (loginSuccess == true) {
+					obj.put("loginSuccess", "yes");
+				} else {
+					obj.put("isExist", "no");
+				}
+				obj.put("information", "yes登陆成功,no登陆失败");
+
+			} catch (Exception e) {
+			}
+			array.add(obj);
+			out.write(array.toString());
 		} else if (action.equals("userInformation"))// 用户个人信息
 		{
 			String tel = request.getParameter("tel");
