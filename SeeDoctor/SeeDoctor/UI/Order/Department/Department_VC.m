@@ -28,6 +28,7 @@
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
     NSString * url1 = [NSString stringWithFormat:doctorSearch,_departmentNum];
+    url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
         NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
         [datas addObjectsFromArray:arr];

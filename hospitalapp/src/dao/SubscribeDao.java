@@ -24,13 +24,13 @@ public class SubscribeDao {
 	
 	
 	public SearchResult<Subscribe> queryAll(int page ,String doctor_id ,String datetime) {//查询所有用户
-		int totalcount=DBUtil.getTotalCount("select count(subscribe.id) from subscribe,doctor where doctor_id='"+doctor_id+"' and  datetime='"+datetime+"' and subscribe.doctor_id=doctor.id order by doctor.id desc");
+		int totalcount=DBUtil.getTotalCount("select count(subscribe.id) from subscribe,doctor where doctor_id='"+doctor_id+"' and  datetime like '"+datetime+"%' and subscribe.doctor_id=doctor.id order by doctor.id desc");
 		SearchResult<Subscribe> sr=new SearchResult<Subscribe>();
 		sr.setTotalcount(totalcount);
 		sr.setNumPerPage(10);
 		page=page>sr.getTotalPage()?sr.getTotalPage():page;
 		sr.setNowpage(page);
-		String sql="select subscribe.*,doctor.name from subscribe,doctor where doctor_id='"+doctor_id+"' and  datetime='"+datetime+"' and subscribe.doctor_id=doctor.id limit "+(page-1)*10+",10";
+		String sql="select subscribe.*,doctor.name from subscribe,doctor where doctor_id='"+doctor_id+"' and  datetime like '"+datetime+"%' and subscribe.doctor_id=doctor.id limit "+(page-1)*10+",10";
 		List<Subscribe> list=this.getList(sql);
 		sr.setList(list);
 		return sr;

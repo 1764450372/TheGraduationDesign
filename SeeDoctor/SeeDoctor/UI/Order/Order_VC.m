@@ -10,6 +10,7 @@
 #import "Department_VC.h"
 #import "Define.h"
 #import "ASRequest.h"
+#import "SystemUse.h"
 
 @interface Order_VC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -30,10 +31,25 @@
     m_tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:m_tableView];
     NSString * url1 = [NSString stringWithFormat:departmentSearch];
+    url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
-        NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+         NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+        [SystemUse setUserDepartment:arr];
         [datas addObjectsFromArray:arr];
         [m_tableView reloadData];
+    } faile:^(NSError *error) {
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"网络错误" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+            ;
+        }];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }];
+    NSString * url  = [NSString stringWithFormat:doctorAllSearch];
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ASRequest requestWithUrl:url Complete:^(NSData *data) {
+          NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+        [SystemUse setUserDoctor:arr];
     } faile:^(NSError *error) {
         UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"网络错误" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {

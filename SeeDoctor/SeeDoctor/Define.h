@@ -24,6 +24,8 @@
 #define PWD              @"pwd"
 #define EMAIL            @"email"
 #define GENDER           @"gender"
+#define DOCTOR           @"doctor"
+
 
 //注册
 #define regist @"http://1.hospitalapp.applinzi.com/user/UserServlet?action=regist&tel=%@&name=%@&email=%@&gender=%@&sex=%@&pwd=%@"
@@ -33,7 +35,8 @@
 #define userInformation @"http://1.hospitalapp.applinzi.com/user/UserServlet?action=userInformation&tel=%@&pwd=%@"
 //修改用户信息
 #define updateUserInformation  @"http://1.hospitalapp.applinzi.com/user/UserServlet?action=updateUser&tel=%@&name=%@&email=%@&gender=%@&sex=%@&pwd=%@"
-
+//医生信息查询
+#define doctorAllSearch @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=doctorAllSearch"
 //部门查询
 #define  departmentSearch   @"http://1.hospitalapp.applinzi.com/other/OtherServlet?action=departmentSearch&page=1&count=50"
 //部门对应医生

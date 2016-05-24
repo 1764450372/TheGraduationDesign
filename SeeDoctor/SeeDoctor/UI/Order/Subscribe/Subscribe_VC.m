@@ -25,7 +25,7 @@
     datepicker.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"2.jpg"]];
     [self.view addSubview:datepicker];
     datepicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
-    datepicker.datePickerMode = UIDatePickerModeDate;
+    datepicker.datePickerMode = UIDatePickerModeDateAndTime ;
     [datepicker setCalendar:[NSCalendar currentCalendar]];
     [datepicker setDate:[NSDate date]];
     [datepicker setMaximumDate:[self getPriousorLaterDateFromDate:[NSDate date]]];
@@ -57,6 +57,8 @@
 
 -(void) changeOrderNum{
     NSString * url1 = [NSString stringWithFormat:subscribeCount,_dic[@"id"],_dateLabel.text];
+    url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
     [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
         NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
         _orderNum.text = [NSString stringWithFormat:@"%@",arr[0][@"count"]] ;
@@ -74,7 +76,7 @@
 -(void) changeDate{
     NSDate *select  = [datepicker date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd  HH:mm"];
     NSString *dateEndTime = [dateFormatter stringFromDate:select];
     _dateLabel.text = dateEndTime;
     [self changeOrderNum];
@@ -87,16 +89,19 @@
 
 - (IBAction)registSure:(id)sender {
     __block NSString * countNo = @"0";
-    NSString * url = [NSString stringWithFormat:subscribeCountForId];
-    [ASRequest requestWithUrl:url Complete:^(NSData *data) {
+    NSString * url1 = [NSString stringWithFormat:subscribeCountForId];
+    url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
         NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
         if (!arr) {
             int num = (arc4random() % 10000);
             countNo = [NSString stringWithFormat:@"%d", num];
         }else{
-        countNo = [NSString stringWithFormat:@"%d",[arr[0][@"count"] integerValue]+1] ;
+        countNo = [NSString stringWithFormat:@"%ld",[arr[0][@"count"] integerValue]+1] ;
         }
         NSString * url1 = [NSString stringWithFormat:subscribeInsert,countNo,[SystemUse getUserTel],_dic[@"id"],_dateLabel.text];
+        url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
         [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
             UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"" message:@"预约成功" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
@@ -117,6 +122,8 @@
         int num = (arc4random() % 10000);
         countNo = [NSString stringWithFormat:@"%d", num];
         NSString * url1 = [NSString stringWithFormat:subscribeInsert,countNo,[SystemUse getUserTel],_dic[@"id"],_dateLabel.text];
+        url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
         [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
             UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"" message:@"预约成功" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAction=[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {

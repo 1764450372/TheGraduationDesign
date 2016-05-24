@@ -66,4 +66,22 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:GENDER];
 }
 
++(void) setUserDepartment:(NSArray *)department{
+    [[NSUserDefaults standardUserDefaults] setValue:department forKey:DEPARTMENT];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(NSArray * ) getUserDepartment{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:DEPARTMENT];
+}
+
++(void) setUserDoctor:(NSArray *)doctor{
+    [[NSUserDefaults standardUserDefaults] setValue:doctor forKey:DOCTOR];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(NSArray * ) getUserDoctor{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:DOCTOR];
+}
+
 @end

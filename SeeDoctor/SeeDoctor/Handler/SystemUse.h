@@ -34,4 +34,12 @@
 
 +(NSString *) getUserGerder;
 
++(void) setUserDepartment:(NSArray *)department;
+
++(NSArray * ) getUserDepartment;
+
++(void) setUserDoctor:(NSArray *)doctor;
+
++(NSArray * ) getUserDoctor;
+
 @end

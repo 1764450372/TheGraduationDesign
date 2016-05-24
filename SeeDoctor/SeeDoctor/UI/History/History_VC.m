@@ -34,6 +34,7 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     NSString * url1 = [NSString stringWithFormat:reslutSearch,[SystemUse getUserTel]];
+    url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
         NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
         [datas removeAllObjects];
@@ -72,10 +73,10 @@
     }
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(5, 0,[UIScreen mainScreen].bounds.size.width - 10, 90)]; 
     view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"2.jpg"]];
-     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, [UIScreen mainScreen].bounds.size.width - 10, 80)];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = datas[indexPath.row][@"name"];;
-    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, [UIScreen mainScreen].bounds.size.width - 10, 80)];
+  
+    label.text = [NSString stringWithFormat:@"%@   %@", datas[indexPath.row][@"name"], datas[indexPath.row][@"datetime"]];
+    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     [view addSubview:label];
     [cell addSubview:view];
     cell.backgroundColor = [UIColor clearColor];

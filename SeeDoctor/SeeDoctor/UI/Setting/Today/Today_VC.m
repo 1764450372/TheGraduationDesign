@@ -33,6 +33,7 @@
     m_tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:m_tableView];
     NSString * url1 = [NSString stringWithFormat:subscribeSearch,[SystemUse getUserTel]];
+    url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
         NSArray * arr = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
         [datas addObjectsFromArray:arr];
@@ -72,22 +73,12 @@
     }
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(5, 0,[UIScreen mainScreen].bounds.size.width - 10, 90)];
     view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"2.jpg"]];
-//    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 80, 80)];
-//    if ([datas[indexPath.row][SEX] isEqualToString:@"1"]) {
-//        imageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"boy.jpg"]];
-//    }else{
-//        imageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"girl.jpg"]];
-//    }
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(110, 5, [UIScreen mainScreen].bounds.size.width - 100, 80)];
-//    NSString * str = @"";
-//    if ([datas[indexPath.row][DIFFERENT] isEqualToString:@"1"]) {
-//        str = @"(专家)";
-//    }
-//    label.text =[NSString stringWithFormat:@"%@%@%@/%@",datas[indexPath.row][DOCTOR_NAME],str,datas[indexPath.row][PEOPLE_NUM],datas[indexPath.row][ORDER_NUM]] ;
-    label.text =datas[indexPath.row][@"name"];
+ 
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, [UIScreen mainScreen].bounds.size.width - 5, 80)];
+    
+     label.text = [NSString stringWithFormat:@"%@     %@", datas[indexPath.row][@"name"], datas[indexPath.row][@"datetime"]];
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     
-//    [view addSubview:imageView];
     [view addSubview:label];
     [cell addSubview:view];
     cell.backgroundColor = [UIColor clearColor];

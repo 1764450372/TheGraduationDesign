@@ -84,11 +84,13 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }else{
         NSString * url = [NSString stringWithFormat:checkPassword,_userName.text,_password.text];
+        url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [ASRequest requestWithUrl:url Complete:^(NSData *data) {
             NSArray * dic = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
             
             if([dic[0][@"loginSuccess"] isEqualToString:@"yes"]){
                 NSString * url1 = [NSString stringWithFormat:userInformation,_userName.text,_password.text];
+                url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                 [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
                     NSArray * dict = [NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
                     [SystemUse setUserName:dict[0][USER_NAME]];

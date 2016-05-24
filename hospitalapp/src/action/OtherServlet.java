@@ -119,6 +119,36 @@ public class OtherServlet extends HttpServlet {
 
 			}
 			out.write(array.toString());
+		} else if (action.equals("doctorAllSearch")) {
+			DoctorDao DoctorDao = new DoctorDao();
+
+			List<Doctor> sr = DoctorDao.queryAllDoctor();
+	
+			// System.out.println(DepartmentList.size());
+
+			JSONArray array = new JSONArray();
+			for (Doctor bean : sr) {
+				JSONObject obj = new JSONObject();
+				try {
+
+					obj.put("id", bean.getId());
+					obj.put("name", bean.getName());
+
+					obj.put("pwd", bean.getPwd());
+					obj.put("sex", bean.getSex());
+					obj.put("different", bean.getDifferent());
+					obj.put("departmentNum", bean.getDepartmentNum());
+					obj.put("peopleNum", bean.getPeopleNum());
+					obj.put("orderNum", bean.getOrderNum());
+					// Share share = new Share();
+
+				} catch (Exception e) {
+
+				}
+				array.add(obj);
+
+			}
+			out.write(array.toString());
 		}else if (action.equals("doctorSearchById")) {
 			DoctorDao DoctorDao = new DoctorDao();
 

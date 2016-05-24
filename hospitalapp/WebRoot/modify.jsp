@@ -25,6 +25,7 @@
            var unames=document.getElementById("username");
            var z=unames.value;
            var unamesmessage=document.getElementById("usernamemessage");
+           
            if(z=="")
            {
            unamesmessage.innerHTML="<font color='red'>结果不能为空</font>";
@@ -36,10 +37,21 @@
             unamesmessage.innerHTML="";
            return true;
            }         
-      
-    
-        
-}
+      }
+      function check()
+       {
+        	
+           var serachType=document.getElementById("serachType");
+           var z=serachType.value;
+         
+           var c = new Array("first", "second", "third"); 
+         
+           var username=document.getElementById("username");
+          
+           
+           username.value=c[z-2];     
+       
+      }
 </script>
 <script type="text/javascript"> 
 
@@ -121,7 +133,25 @@
 							${sr.doctor_id}
 						</label>
 					</td>
-				</tr>				
+				</tr>	
+				
+				<Tr align="left" valign="middle" height="40">
+					
+					<td width="100" valign="middle">
+						检查:
+					</td>
+					<Td colspan="8"style="text-align: left; border: none; padding: 3px;">
+					    <SELECT id="serachType" name="serachType"  onchange="check()">
+					   
+						    <OPTION value="1"  selected></OPTION>
+						    <OPTION value="2">按书号准确查询</OPTION>
+					    	<OPTION value="3">按书类型准确查询</OPTION>
+					    	<OPTION value="4">按书名模糊查询</OPTION>
+
+						</SELECT>				    
+					</Td>
+				</Tr>
+							
 				<tr align="left" valign="middle" height="40">
 					<td width="100" valign="middle">
 						结果:

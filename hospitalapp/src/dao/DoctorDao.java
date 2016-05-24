@@ -58,7 +58,15 @@ public class DoctorDao {
 		sr.setList(list);
 		return sr;
 	}
-	
+	public List<Doctor> queryAllDoctor() {//查询所有用户
+		
+
+		String sql="select * from doctor  ";
+		
+		List<Doctor> list=this.getList(sql);
+		
+		return list;
+	}
 	
 	// 获得用户List
 	private List<Doctor> getList(String sql) { 
