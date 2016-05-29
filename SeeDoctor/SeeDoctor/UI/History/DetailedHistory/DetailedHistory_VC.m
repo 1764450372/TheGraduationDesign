@@ -9,6 +9,7 @@
 #import "DetailedHistory_VC.h"
 #import "Define.h"
 #import "SystemUse.h"
+#import "QRCode.h"
 @interface DetailedHistory_VC ()
 
 @end
@@ -34,8 +35,8 @@
     self.information.text =[NSString stringWithFormat:@"结果：\n   %@",dic[@"result"]];
     self.information.editable = NO;
     self.dateTime.text = dic[DATE_TIME];
+    QRCode * qr = [[QRCode alloc] init];
+    [_qrcode setImage: [qr createNonInterpolatedUIImageFormCIImage:[qr createQRForString:[dic[@"id"] stringValue]] withSize:250.0f]];
 }
-
-
 
 @end

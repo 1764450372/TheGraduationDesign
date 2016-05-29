@@ -61,6 +61,7 @@
 		FEBC95851CDE33EE00D7A057 /* boy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEBC95831CDE33EE00D7A057 /* boy.jpg */; };
 		FEBC95861CDE33EE00D7A057 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEBC95841CDE33EE00D7A057 /* girl.jpg */; };
 		FEBC95881CDE391700D7A057 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEBC95871CDE391700D7A057 /* icon.jpg */; };
+		FECBC24A1CFB220600634E0E /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBC2491CFB220600634E0E /* QRCode.m */; };
 		FEF53AAB1CE24D8700011129 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF53AAA1CE24D8700011129 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +151,8 @@
 		FEBC95831CDE33EE00D7A057 /* boy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boy.jpg; sourceTree = "<group>"; };
 		FEBC95841CDE33EE00D7A057 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl.jpg; sourceTree = "<group>"; };
 		FEBC95871CDE391700D7A057 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
+		FECBC2481CFB220600634E0E /* QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
+		FECBC2491CFB220600634E0E /* QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCode.m; sourceTree = "<group>"; };
 		FEF53AA91CE24D8700011129 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FEF53AAA1CE24D8700011129 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,6 +311,8 @@
 			children = (
 				FE3FF2691CDDED0200A73BA3 /* SystemUse.h */,
 				FE3FF26A1CDDED0200A73BA3 /* SystemUse.m */,
+				FECBC2481CFB220600634E0E /* QRCode.h */,
+				FECBC2491CFB220600634E0E /* QRCode.m */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				FE381A231CDEA879008324CC /* AFURLResponseSerialization.m in Sources */,
 				FE3FF26B1CDDED0200A73BA3 /* SystemUse.m in Sources */,
 				FE381A221CDEA879008324CC /* AFURLRequestSerialization.m in Sources */,
+				FECBC24A1CFB220600634E0E /* QRCode.m in Sources */,
 				FE3FF2891CDE051E00A73BA3 /* DetailedToday_VC.m in Sources */,
 				FE640C9C1CD5EA0D00CE85D1 /* Login_VC.m in Sources */,
 				FE7B678F1CDA8F4600954020 /* Order_VC.m in Sources */,

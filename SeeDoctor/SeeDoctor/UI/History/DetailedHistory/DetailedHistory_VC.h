@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *doctorName;
 @property (weak, nonatomic) IBOutlet UITextView *information;
 @property (weak, nonatomic) IBOutlet UILabel *dateTime;
+@property (weak, nonatomic) IBOutlet UIImageView *qrcode;
+
 
 @property (nonatomic,copy) NSDictionary * dict;
  

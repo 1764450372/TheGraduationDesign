@@ -83,7 +83,6 @@
          str = @"(专家)";
     }
     label.text =[NSString stringWithFormat:@"%@%@",datas[indexPath.row][@"name"],str];
-//        label.text =[NSString stringWithFormat:@"%@%@%@/%@",datas[indexPath.row][@"name"],str,datas[indexPath.row][PEOPLE_NUM],datas[indexPath.row][ORDER_NUM]] ;
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     [view addSubview:imageView];
     [view addSubview:label];

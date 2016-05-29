@@ -19,10 +19,13 @@
 @implementation History_VC{
     UITableView * m_tableView;
     NSMutableArray * datas;
+    NSMutableArray * doctorArrary;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    doctorArrary = [[NSMutableArray alloc] init];
+    [doctorArrary addObjectsFromArray:[SystemUse getUserDoctor]];
     m_tableView = [[UITableView alloc] init];
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
@@ -74,9 +77,16 @@
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(5, 0,[UIScreen mainScreen].bounds.size.width - 10, 90)]; 
     view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"2.jpg"]];
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, [UIScreen mainScreen].bounds.size.width - 10, 80)];
-  
-    label.text = [NSString stringWithFormat:@"%@   %@", datas[indexPath.row][@"name"], datas[indexPath.row][@"datetime"]];
-    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    NSString * str = @"" ;
+    for (NSDictionary * dic in doctorArrary) {
+        if ([dic[@"id"] isEqualToString:datas[indexPath.row][@"doctor_id"]] == YES) {
+             if ([dic[DIFFERENT] isEqualToString:@"1"]) {
+                str = @"(专家)";
+            }
+        }
+    }
+    
+    label.text = [NSString stringWithFormat:@"%@%@     %@", datas[indexPath.row][@"name"], str,datas[indexPath.row][@"datetime"]];    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     [view addSubview:label];
     [cell addSubview:view];
     cell.backgroundColor = [UIColor clearColor];
