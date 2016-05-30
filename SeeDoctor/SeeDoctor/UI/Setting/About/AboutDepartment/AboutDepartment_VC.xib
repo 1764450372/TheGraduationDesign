@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutDepartment_VC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" id="aOR-LK-RLV">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="8lS-eh-70A">
+                    <rect key="frame" x="8" y="80" width="304" height="424"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <mutableString key="text">                                男科
+       男科学是指专门研究男子生殖系统的生理、病理变化的一门综合学科。中医男科学是运用中医药理论认识和研究男性生理、病理、养生、优生及男性特有疾病的发生、发展、转归、诊疗和护理、保健等规律的中医临床学科。具有科学性和先进性的中医男科学，是门古老且新兴的学科，与中医妇科学相对应，都是祖国传统医学中的重要组成部分。
+                           肛肠外科
+      肛肠疾病是指发生于肛门和大肠部位的疾病，其中发生在肛门直肠肠段最多。常见肛门部疾病有痔疮、肛裂、肛痿、肛周脓肿、肛乳头瘤、肛隐窝炎、化脓性大汗腺炎、肛门狭窄、肛门失禁、肛门湿疣、肛门湿疹、肛门瘙痒症、肛门周围神经性皮炎、肛门接触性皮炎、肛门白化斑、肛门癣、肛门闭锁、肛管炎、耻骨直肠肌综合症、骶尾部畸胎瘤、肛门良性和恶性肿瘤、肛管皮肤缺损、直肠尿道痿、蛲虫病、直肠癌、直肠类癌、直肠息肉、脱肛、直肠前突、直肠炎(溃疡性、放射性、淋菌性、非淋菌性、非特异性等)、克隆氏病、直肠阴道痿、直肠内套叠、肛门直肠损伤和异物、粪嵌塞、肛门直肠神经官能症、孤立性直肠溃疡综合症等匹十余种。
+                              肿瘤科
+      肿瘤的治疗已经进入了综合治疗的时代，临床实践证明现阶段采用任何单一的治疗方法都常难以取得最佳的效果。因此，除一些早期肿瘤和个别特殊类型的肿瘤以外，绝大多数肿瘤的治疗原则是综合治疗。综合治疗(multimodality therapy)的概念是根据病人的机体情况、肿瘤的病理类型、侵犯范围（病期）和发展趋势，有计划地、合理地应用现有的治疗手段，以期较大幅度地提高肿瘤治愈率、延长生存期、提高病人生活质量。肿瘤的综合治疗不是手术、化疗、放疗、生物学治疗和中医药治疗等多种治疗方法的简单组合，而是一个有计划、有步骤、有顺序的个体化治疗集合体，是一个系统的治疗过程，需要手术、放疗和化疗等多学科有效地协作才能顺利完成。
+                                  外科
+     外科是研究外科疾病的发生，发展规律及其临床表现，诊断，预防和治疗的科学，是以手术切除、修补为主要治病手段的专业科室。随着显微外科技术的应用，外科得到了较大的发展。各医院外科的专科设置原则与内科类同，通常与内科相对应。外科疾病分为五大类：创伤，感染，肿瘤，畸形和功能障碍。
+                                 风湿科
+风湿病是一组侵犯关节、骨骼、肌肉、血管及有关软组织或结缔组织为主的疾病，其中多数为自身免疫性疾病。发病多较隐蔽而缓慢，病程较长，且大多具有遗传倾向。 诊断及治疗均有一定难度；血液中多可检查出不同的自身抗体，可能与不同HLA亚型有关；对非甾类抗炎药(NSAID)，糖皮质激素和免疫抑制剂有较好的短期或长期的缓解性反应。
+                               乳腺外科
+       为临床外科学下一学科分支，主要针对乳腺疾病的外科学方面-乳腺解剖、乳腺感染、乳腺肿瘤病理、乳腺肿瘤诊治原则、乳腺肿瘤诊断、乳腺肿瘤外科手术的各种术式、化疗、放疗、内分泌治疗。
+                                    骨科
+      骨科是各大医院最常见的科室之一，主要研究骨骼肌肉系统的解剖、生理与病理，运用药物、手术及物理方法保持和发展这一系统的正常形态与功能。随着时代和社会的变更，骨科伤病谱有了明显的变化，例如，骨关节结核、骨髓炎、小儿麻痹症等疾病明显减少，交通事故引起的创伤明显增多。骨科伤病谱的变化，这就需要骨科与时俱进了。
+                                     内科
+      内科学是临床医学的一个专科，几乎是所有其他临床医学的基础，亦有医学之母之称。红十字内科学的内容包含了疾病的定义、病因、致病机转、流行病学、自然史、症状、征候、实验诊断、影像检查、鉴别诊断、诊断、治疗、预后。内科学的方法是透过病史询问或面谈后，进行理学检查，根据病史与检查所见做实验诊断与影像检查，以期在众多鉴别诊断中排除可能性较低者，获得最有可能的诊断；获得诊断后，内科的治疗方法包含追踪观察、生活方式、药物、介入性治疗（如心导管、内视镜）等，根据病人的状况调整药物之使用，防止并处理副作用及并发症。内科学在临床医学中占有极其重要的位置，它不仅是临床医学各科的基础，而且与它们存在着密切的联系。内科学的知识来源于医疗实践，以前的医学家在治病救人的过程中，经过不断的积累经验，去伪存真、去粗采精，从实践中不断提高认识水平，通过多年的长期积累，逐渐形成有系统的诊治疾病的方法。经过一代又一代的医学家将这些实践得来的知识，经过整理和归纳。并加以系统地研究(包括循证医学的研究)，才发展为内科学。一个优秀的临床医生，不但要有为人民服务的心愿，还要有为人民服务的本领。要获得治病的本领，既要善于读书，又要勤于实践，并在实践中不断地总结经验和教训，如此多年的深研苦钻，才能成材。内科的检查意义：用于了解胸部、心肺听诊、肠鸣音、心率、杂音、心律、肝、脾腹壁静脉曲张等情况。内科一般分为：心内科、神经内科(头痛面瘫 瘫痪昏迷 抽搐眩晕 肌肉萎缩不自主运动)、呼吸内科(发热 咳嗽咯血 呼吸困难呃逆)、消化内科、肾内科、内分泌科(水肿 生长发育异常尿量异常 尿糖甲状腺肿大)、风湿病科、血液科、肝科、传染科、耳鼻咽喉科、小儿内科。</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="485" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="1.jpg" width="2560" height="1600"/>
+    </resources>
+</document>

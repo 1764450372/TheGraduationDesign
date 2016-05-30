@@ -84,9 +84,10 @@
     }
     for (NSDictionary * dic in doctorArrary) {
         if ([dic[@"id"] isEqualToString:datas[indexPath.row][@"doctor_id"]] == YES) {
-            NSLog(@"%@",dic);
             if ([dic[DIFFERENT] isEqualToString:@"1"]) {
                 str = @"(专家)";
+            }else{
+                str = @"(医师)";
             }
         }
     }

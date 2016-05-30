@@ -62,6 +62,12 @@
 		FEBC95861CDE33EE00D7A057 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEBC95841CDE33EE00D7A057 /* girl.jpg */; };
 		FEBC95881CDE391700D7A057 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEBC95871CDE391700D7A057 /* icon.jpg */; };
 		FECBC24A1CFB220600634E0E /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBC2491CFB220600634E0E /* QRCode.m */; };
+		FEEE9FDF1CFBED83007E5B52 /* AboutDepartment_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEE9FDD1CFBED83007E5B52 /* AboutDepartment_VC.m */; };
+		FEEE9FE01CFBED83007E5B52 /* AboutDepartment_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEEE9FDE1CFBED83007E5B52 /* AboutDepartment_VC.xib */; };
+		FEEE9FE41CFBEED6007E5B52 /* AboutHospital_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEE9FE21CFBEED6007E5B52 /* AboutHospital_VC.m */; };
+		FEEE9FE51CFBEED6007E5B52 /* AboutHospital_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEEE9FE31CFBEED6007E5B52 /* AboutHospital_VC.xib */; };
+		FEEE9FE91CFBF05A007E5B52 /* AboutDoctor_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEE9FE71CFBF05A007E5B52 /* AboutDoctor_VC.m */; };
+		FEEE9FEA1CFBF05A007E5B52 /* AboutDoctor_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEEE9FE81CFBF05A007E5B52 /* AboutDoctor_VC.xib */; };
 		FEF53AAB1CE24D8700011129 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF53AAA1CE24D8700011129 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +159,15 @@
 		FEBC95871CDE391700D7A057 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		FECBC2481CFB220600634E0E /* QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
 		FECBC2491CFB220600634E0E /* QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCode.m; sourceTree = "<group>"; };
+		FEEE9FDC1CFBED83007E5B52 /* AboutDepartment_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutDepartment_VC.h; sourceTree = "<group>"; };
+		FEEE9FDD1CFBED83007E5B52 /* AboutDepartment_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutDepartment_VC.m; sourceTree = "<group>"; };
+		FEEE9FDE1CFBED83007E5B52 /* AboutDepartment_VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutDepartment_VC.xib; sourceTree = "<group>"; };
+		FEEE9FE11CFBEED6007E5B52 /* AboutHospital_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutHospital_VC.h; sourceTree = "<group>"; };
+		FEEE9FE21CFBEED6007E5B52 /* AboutHospital_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutHospital_VC.m; sourceTree = "<group>"; };
+		FEEE9FE31CFBEED6007E5B52 /* AboutHospital_VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutHospital_VC.xib; sourceTree = "<group>"; };
+		FEEE9FE61CFBF05A007E5B52 /* AboutDoctor_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutDoctor_VC.h; sourceTree = "<group>"; };
+		FEEE9FE71CFBF05A007E5B52 /* AboutDoctor_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutDoctor_VC.m; sourceTree = "<group>"; };
+		FEEE9FE81CFBF05A007E5B52 /* AboutDoctor_VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutDoctor_VC.xib; sourceTree = "<group>"; };
 		FEF53AA91CE24D8700011129 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FEF53AAA1CE24D8700011129 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +241,9 @@
 		FE3FF2731CDDFD8F00A73BA3 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				FEEE9FCD1CFBEA16007E5B52 /* AboutDepartment */,
+				FEEE9FCE1CFBEA16007E5B52 /* AboutDoctor */,
+				FEEE9FCF1CFBEA16007E5B52 /* AboutHospital  */,
 				FE3FF2761CDDFDAB00A73BA3 /* About_VC.h */,
 				FE3FF2771CDDFDAB00A73BA3 /* About_VC.m */,
 				FE3FF2781CDDFDAB00A73BA3 /* About_VC.xib */,
@@ -462,6 +480,36 @@
 			path = head;
 			sourceTree = "<group>";
 		};
+		FEEE9FCD1CFBEA16007E5B52 /* AboutDepartment */ = {
+			isa = PBXGroup;
+			children = (
+				FEEE9FDC1CFBED83007E5B52 /* AboutDepartment_VC.h */,
+				FEEE9FDD1CFBED83007E5B52 /* AboutDepartment_VC.m */,
+				FEEE9FDE1CFBED83007E5B52 /* AboutDepartment_VC.xib */,
+			);
+			path = AboutDepartment;
+			sourceTree = "<group>";
+		};
+		FEEE9FCE1CFBEA16007E5B52 /* AboutDoctor */ = {
+			isa = PBXGroup;
+			children = (
+				FEEE9FE61CFBF05A007E5B52 /* AboutDoctor_VC.h */,
+				FEEE9FE71CFBF05A007E5B52 /* AboutDoctor_VC.m */,
+				FEEE9FE81CFBF05A007E5B52 /* AboutDoctor_VC.xib */,
+			);
+			path = AboutDoctor;
+			sourceTree = "<group>";
+		};
+		FEEE9FCF1CFBEA16007E5B52 /* AboutHospital  */ = {
+			isa = PBXGroup;
+			children = (
+				FEEE9FE11CFBEED6007E5B52 /* AboutHospital_VC.h */,
+				FEEE9FE21CFBEED6007E5B52 /* AboutHospital_VC.m */,
+				FEEE9FE31CFBEED6007E5B52 /* AboutHospital_VC.xib */,
+			);
+			path = "AboutHospital ";
+			sourceTree = "<group>";
+		};
 		FEF53AA81CE24D8700011129 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +588,7 @@
 				FE7B67901CDA8F4600954020 /* Order_VC.xib in Resources */,
 				FEBC95801CDE231F00D7A057 /* 2.jpg in Resources */,
 				FEBC957F1CDE231F00D7A057 /* 1.jpg in Resources */,
+				FEEE9FEA1CFBF05A007E5B52 /* AboutDoctor_VC.xib in Resources */,
 				FEA5C26D1CF11DEF00F3645F /* Subscribe_VC.xib in Resources */,
 				FEBC95881CDE391700D7A057 /* icon.jpg in Resources */,
 				FEBC95811CDE231F00D7A057 /* 9.jpg in Resources */,
@@ -547,11 +596,13 @@
 				FEBC95861CDE33EE00D7A057 /* girl.jpg in Resources */,
 				FE640C621CD5DFCD00CE85D1 /* LaunchScreen.storyboard in Resources */,
 				FE3FF28A1CDE051E00A73BA3 /* DetailedToday_VC.xib in Resources */,
+				FEEE9FE01CFBED83007E5B52 /* AboutDepartment_VC.xib in Resources */,
 				FE7B678B1CDA8F2C00954020 /* Setting_VC.xib in Resources */,
 				FEBC95771CDE22B500D7A057 /* more@2x.png in Resources */,
 				FEBC957A1CDE22B500D7A057 /* search_@2x.png in Resources */,
 				FE3FF2681CDD8E5C00A73BA3 /* DetailedHistory_VC.xib in Resources */,
 				FE3FF2721CDDF3AE00A73BA3 /* Department_VC.xib in Resources */,
+				FEEE9FE51CFBEED6007E5B52 /* AboutHospital_VC.xib in Resources */,
 				FE640C5F1CD5DFCD00CE85D1 /* Assets.xcassets in Resources */,
 				FE640C9D1CD5EA0D00CE85D1 /* Login_VC.xib in Resources */,
 				FEBC95781CDE22B500D7A057 /* more_@2x.png in Resources */,
@@ -569,13 +620,16 @@
 				FE3FF2791CDDFDAB00A73BA3 /* About_VC.m in Sources */,
 				FE7B679F1CDA94D500954020 /* HHTabBarViewController.m in Sources */,
 				FE3FF2671CDD8E5C00A73BA3 /* DetailedHistory_VC.m in Sources */,
+				FEEE9FE41CFBEED6007E5B52 /* AboutHospital_VC.m in Sources */,
 				FE7B679D1CDA94D500954020 /* HHNavigationController.m in Sources */,
 				FE7B67941CDA8F6800954020 /* History_VC.m in Sources */,
 				FE640C9E1CD5EA0D00CE85D1 /* Regist_VC.m in Sources */,
 				FE381A1E1CDEA879008324CC /* AFHTTPSessionManager.m in Sources */,
 				FE640C571CD5DFCD00CE85D1 /* AppDelegate.m in Sources */,
 				FE7B679E1CDA94D500954020 /* HHStartViewController.m in Sources */,
+				FEEE9FE91CFBF05A007E5B52 /* AboutDoctor_VC.m in Sources */,
 				FE381A251CDEA879008324CC /* ASRequest.m in Sources */,
+				FEEE9FDF1CFBED83007E5B52 /* AboutDepartment_VC.m in Sources */,
 				FE381A1F1CDEA879008324CC /* AFNetworkReachabilityManager.m in Sources */,
 				FE381A241CDEA879008324CC /* AFURLSessionManager.m in Sources */,
 				FE640C541CD5DFCD00CE85D1 /* main.m in Sources */,

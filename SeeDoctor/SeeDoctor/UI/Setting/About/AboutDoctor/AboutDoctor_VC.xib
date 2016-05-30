@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutDoctor_VC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" id="BaV-zI-Tfa">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="jrR-dW-hIv">
+                    <rect key="frame" x="8" y="67" width="304" height="446"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <mutableString key="text">梁春霞， 复旦大学附属华山医院首席专家，中国医师学会会员，一直致力于皮肤科临床、科研工作，对皮肤预防、养护、治疗以及中西医结合治疗均有独到见解，多次被评为中国优秀医师，受邀出席中国、韩国、美国医疗美容行业峰会及专业学术交流。
+吴玉家，男，1975年1月生，大连庄河人， 复旦大学附属华山医院医学整形美容中心主治医师，北京北海医院乳腺外科医学中心特聘专家。第四军医大学学士、硕士，第二军医大学博士，先后师从多位国内顶级专家。以融会中西方美学，手术精巧细腻，精深于微创先进术式的研究，深得业内著名专家赏识。18年整形美容专业经验，成功实施隆乳术、注射式假体（奥美定）取出术、乳腺癌术后乳房再造、眼部复杂整形和失败手术修复、鼻畸形矫正、全面部除皱、面部畸形重塑、以及烧烫伤疤痕修复手术两千多例，让众多患者重拾自信，重新开始美好的生活。被患者誉为创造第二个“人生”甚至第二次生命的“颜面重塑白衣使者”。
+王积分，主任医师，教授，1964年毕业于华西医科大学，成都市传染病医院从事临床、科研、教学及管理工作40余年。四川省97-98届卫生技术高级职务成都评审委员会内科专业组专家；2004年应邀出任世界教科文卫生组织医学专家成员；华西医科大学硕士、博士生答辩委员会委员；1991年10月被收入《四川省高级专家名录》；先后撰写论文20余篇，在全国、省、市专业杂志上发表。91年参与完成攻克市科委重点课题一项，被国际肝病肝癌学术会议录用，获92年成都市科技进步三等奖。2001年度参加完成乙肝病毒携带产妇哺乳喂养安全性探讨科研一项。获成都市人民政府颁发的成都市科研进步三等奖。
+吴沪生，女，1960年毕业于北京医科大学医学系。北京儿童医院教授、主任医师、硕士生导师。现任卫生部计划免疫专家咨询委员会委员，中华儿科杂志编委，中华医学会及北京医学会医疗事故鉴定专家库成员，国际小儿神经病学会员。享有突出贡献政府特殊津贴。
+张吕夫，男， 复旦大学附属华山医院中医内科主任医师。中医世家，擅长儿科、妇科杂病及疑难杂症，如：小儿心肌炎、子宫肌瘤、肾炎、乙肝、癫痫、风湿、脑发育不全等。儿科是张大夫之所长，到他那里看病的，几乎有半数都是孩子，这些病儿在这里大都可以得到满意的治疗。除一般儿科疾病外，张大夫近年在对学龄儿童智力低下的治疗上亦取得了很好的疗效。许多患儿服药后诸症消失，记忆力和理解力明显改善，所以人称“小儿张”。
+钱素云，医学博士，主任医师，教授，博士生导师，特级专家，重症医学科主任。先后在美国BUFFALO儿童医院，美国纽约MONTEFIORE儿童医院和意大利罗马BAMBINO GESU儿童医院进修学习。曾获北京市卫生局科技进步一等奖，北京儿童医院诸福棠/吴瑞萍儿科奖励基金中青年医学成就一等奖，首都医科大学教学成果二等奖，北京卫生系统先进个人和北京地区百名优秀医生。先后获北京市科技新星项目、北京市优秀人才项目、首都医学发展科研基金等资助。发表论文100余篇，SCI4篇，主编、副主编专著4部，参编10余部。主要研究方向为儿科重症的基础与临床研究，包括各种感染性疾病(如重症肺炎、脑炎、严重脓毒症、胃肠道感染、手足口病、EB及CMV病毒感染等)，呼吸系统疾病及呼吸衰竭、中毒及意外伤害、休克的诊治及营养支持治疗等。
+秦炯， 复旦大学附属华山医院儿科主任、教授、博士生导师。1984年毕业于北京医学院，1989年获博士学位。《中华儿科杂志》第十二、十三届编委会委员，中华医学会儿科学分会副主任委员，中华医学会儿科学分会神经学组组长，中国抗癫痫协会副会长，亚洲大洋洲小儿神经协会理事。从事癫痫等疾病的临床与基础研究。承担国家自然科学基金及卫生部、教育部科研基金多项。发表论文100余篇。获高等学校自然科学二等奖、中华医学科技三等奖各一项。指导硕士生15人、博士生11人。二十年来一直从事儿科学及小儿神经病学临床、教学和科研工作。特别擅长：对儿童癫痫的诊治具有极其丰富的经验，对小儿发育异常、癫痫、脑性瘫痪、智力低下等疾病的早期诊断与干预问题颇有建树。
+钱文燕教教授是 复旦大学附属华山医院中医皮肤病医院专家，北京中医药大学教授。1962年毕业于北京中医学院，师从中医医院皮肤科师承中医泰斗、全国著名皮外科专家赵炳南先生20余年，深受其真传。尤其擅长治各种急性热性红斑性皮肤病，是著名的中西医结合皮肤病专家。
+肖洪贵  男 副主任医师 副教授，现任中华医学会肝病学会会员、 复旦大学附属华山医院中西医结合科主任、四川中医肝病医院专家组成员、西南肝病研究院高级研究员，中华实用医学杂志常务编委、《健康必读》全国名医理事会理事等。泸州医学院临床医疗系毕业，从事肝病临床工作三十多年，曾长期在三甲医院从事肝病临床治疗和科研工作。</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="353" y="222"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="1.jpg" width="2560" height="1600"/>
+    </resources>
+</document>

@@ -80,7 +80,9 @@
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(110, 5, [UIScreen mainScreen].bounds.size.width - 100, 80)];
     NSString * str = @"";
     if ([datas[indexPath.row][DIFFERENT] isEqualToString:@"1"]) {
-         str = @"(专家)";
+        str = @"(专家)";
+    }else{
+        str = @"(医师)";
     }
     label.text =[NSString stringWithFormat:@"%@%@",datas[indexPath.row][@"name"],str];
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
