@@ -46,7 +46,7 @@ public class SubscribeDao {
 	}
 	
 	public int queryByIdAndDatetime(String doctor_id,String datetime){  
-		String sql="select subscribe.*,doctor.name from subscribe,doctor  where doctor_id='"+doctor_id+"' and datetime='"+datetime+"' and subscribe.doctor_id=doctor.id";
+		String sql="select subscribe.*,doctor.name from subscribe,doctor  where doctor_id='"+doctor_id+"' and datetime like '"+datetime+"%' and subscribe.doctor_id=doctor.id";
 		
 		List<Subscribe> list=this.getList(sql);
 		return list.size();

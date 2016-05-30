@@ -302,7 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				FE640C791CD5E0F200CE85D1 /* Handler */,
-				FE640C7A1CD5E0F200CE85D1 /* Moudel */,
 				FE640C7B1CD5E0F200CE85D1 /* OtherSourcse */,
 				FE640C7C1CD5E0F200CE85D1 /* UI */,
 				FE640C551CD5DFCD00CE85D1 /* AppDelegate.h */,
@@ -333,13 +332,6 @@
 				FECBC2491CFB220600634E0E /* QRCode.m */,
 			);
 			path = Handler;
-			sourceTree = "<group>";
-		};
-		FE640C7A1CD5E0F200CE85D1 /* Moudel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Moudel;
 			sourceTree = "<group>";
 		};
 		FE640C7B1CD5E0F200CE85D1 /* OtherSourcse */ = {

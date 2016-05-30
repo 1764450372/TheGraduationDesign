@@ -44,12 +44,12 @@
            var serachType=document.getElementById("serachType");
            var z=serachType.value;
          
-           var c = new Array("first", "second", "third"); 
+           var c = new Array("", "胸透", "CT","肝功","血常规"); 
          
            var username=document.getElementById("username");
           
            
-           username.value=c[z-2];     
+           username.value=c[z];     
        
       }
 </script>
@@ -91,7 +91,8 @@
 	</head>
 	<body style="background:url('${pageContext.request.contextPath}/images/bg001.jpg') center no-repeat;">
 		<div style="width: 100%;">
-			<div style="float:left; width: 100%; border:0px ;">您好,欢迎登陆  <a  href=${pageContext.request.contextPath}/index.jsp ;>退出</a><br></div>
+			<div style="float:left; width: 100%; border:0px ;">您好,欢迎登陆  <a  href=${pageContext.request.contextPath}/index.jsp>退出</a><br></div>
+		     <a href="javascript:history.go(-1);">返回上级</a>
 		</div>
 		<form name="modifyform" id="modifyform"  method="post" action="${pageContext.request.contextPath}/user/PCServlet">
 			<table align="center" width="500" border="0" cellpadding="1"
@@ -143,12 +144,12 @@
 					<Td colspan="8"style="text-align: left; border: none; padding: 3px;">
 					    <SELECT id="serachType" name="serachType"  onchange="check()">
 					   
-						    <OPTION value="1"  selected></OPTION>
-						    <OPTION value="2">按书号准确查询</OPTION>
-					    	<OPTION value="3">按书类型准确查询</OPTION>
-					    	<OPTION value="4">按书名模糊查询</OPTION>
-
-						</SELECT>				    
+						    <OPTION value="0"  selected></OPTION>
+						    <OPTION value="1">胸透</OPTION>
+					    	<OPTION value="2">CT</OPTION>
+					    	<OPTION value="3">肝功</OPTION>
+					     	<OPTION value="4">血常规</OPTION>
+					     </SELECT>				    
 					</Td>
 				</Tr>
 							

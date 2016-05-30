@@ -21,6 +21,7 @@
     UITableView * m_tableView;
     NSMutableArray * datas;
     NSMutableArray * doctorArrary;
+    NSString * dateTime;
 }
 
 
@@ -35,6 +36,10 @@
     m_tableView.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -100   );
     m_tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:m_tableView];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd  HH:mm"];
+    dateTime = [dateFormatter stringFromDate:[NSDate date]];
+
     NSString * url1 = [NSString stringWithFormat:subscribeSearch,[SystemUse getUserTel]];
     url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ASRequest requestWithUrl:url1 Complete:^(NSData *data) {
@@ -91,8 +96,13 @@
             }
         }
     }
+    NSString * s = @"";
+    if ([datas[indexPath.row][@"datetime"] compare:dateTime] == NSOrderedAscending ) {
+        s  = @"(X)";
+    }
     
-     label.text = [NSString stringWithFormat:@"%@%@     %@", datas[indexPath.row][@"name"], str,datas[indexPath.row][@"datetime"]];
+    
+     label.text = [NSString stringWithFormat:@"%@%@     %@%@", datas[indexPath.row][@"name"], str,datas[indexPath.row][@"datetime"],s];
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     
     [view addSubview:label];

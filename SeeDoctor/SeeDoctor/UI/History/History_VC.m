@@ -87,8 +87,9 @@
              }
         }
     }
-    
-    label.text = [NSString stringWithFormat:@"%@%@     %@", datas[indexPath.row][@"name"], str,datas[indexPath.row][@"datetime"]];    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+  
+    label.text = [NSString stringWithFormat:@"%@%@     %@", datas[indexPath.row][@"name"], str,datas[indexPath.row][@"datetime"]];
+    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     [view addSubview:label];
     [cell addSubview:view];
     cell.backgroundColor = [UIColor clearColor];

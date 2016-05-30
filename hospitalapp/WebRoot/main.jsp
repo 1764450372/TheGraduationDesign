@@ -33,12 +33,12 @@
 	  
 	  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/searchUI.css" type="text/css"></link>
        
-	
+	</head>
 	<body style="background:url('${pageContext.request.contextPath}/images/bg001.jpg') center no-repeat;">
 	    <%Subscribe loginuser=(Subscribe)session.getAttribute("sr"); %>
 	 					
 	    <div style="width: 100%;">
-			<div style="float:left; width: 100%; border:0px ;">您好,欢迎登陆  <a  href=${pageContext.request.contextPath}/index.jsp ;>退出</a><br></div>
+			<div style="float:left; width: 100%; border:0px ;">您好,欢迎登陆  <a  href=${pageContext.request.contextPath}/index.jsp>退出</a><br></div>
 		</div>
 		<form name="searchform" id="searchform" method="post"
 			action="${pageContext.request.contextPath}/user/PCServlet">

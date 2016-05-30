@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderNum;
 - (IBAction)changeDate:(id)sender;
 - (IBAction)registSure:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
  
 
 @end
