@@ -104,7 +104,7 @@
                     tabBarController.delegate = self;
                     [tabBarController setcontroller:@"Order_VC" title:@"预约" imageNamed:@"search.png" selectedImageName:@"search_.png"];
                     [tabBarController setcontroller:@"History_VC" title:@"历史" imageNamed:@"history.png" selectedImageName:@"history_.png"];
-                    [tabBarController setcontroller:@"Setting_VC" title:@"我的" imageNamed:@"more.png" selectedImageName:@"more_.png"];
+                    [tabBarController setcontroller:@"Setting_VC" title:@"我的信息" imageNamed:@"more.png" selectedImageName:@"more_.png"];
                     tabBarController.selectedViewController=tabBarController.viewControllers[0];
                     [self presentViewController:tabBarController animated:YES completion:nil];
                 } faile:^(NSError *error) {
