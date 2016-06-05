@@ -27,7 +27,7 @@
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
     datas = [[NSArray alloc] init];
-    datas = @[@"医院详情",@"科室详情",@"医生简介",@"导诊信息"];
+    datas = @[@"医院详情",@"科室详情",@"医生简介"];
     m_tableView.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, 100 * [datas count]);
     m_tableView.backgroundColor = [UIColor clearColor];
     m_tableView.scrollEnabled = NO;
