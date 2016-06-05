@@ -23,6 +23,8 @@ import dao.SubscribeDao;
 import domain.Doctor;
 import domain.Result;
 import domain.Subscribe;
+import domain.Department;
+import dao.DepartmentDao;
 
 @SuppressWarnings("serial")
 public class PCServlet extends HttpServlet {
@@ -52,8 +54,8 @@ public class PCServlet extends HttpServlet {
 			if (loginSuccess == true) {
 				
 				SubscribeDao SubscribeDao = new SubscribeDao();
-			
-				SearchResult<Subscribe> sr = null;
+			    DepartmentDao departmentDao = new DepartmentDao();
+				
 				String strpage = request.getParameter("page");
 				int page = 0;
 				try {
@@ -64,12 +66,22 @@ public class PCServlet extends HttpServlet {
 				Date nowTime = new Date(System.currentTimeMillis());
 				  SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd");
 				  String retStrFormatNowDate = sdFormatter.format(nowTime);
-				sr = SubscribeDao.queryAll(page, id, retStrFormatNowDate);
 				
-				request.setAttribute("sr", sr);
-				
-				request.getRequestDispatcher("../main.jsp").forward(request,
-						response);
+				if(id.equals("super")){
+					DepartmentDao DepartmentDao = new DepartmentDao();
+ 					SearchResult<Department> sr = DepartmentDao.queryAll(
+							page, 1000);
+ 					request.setAttribute("sr", sr);
+					request.getRequestDispatcher("../Super.jsp").forward(request,
+							response);
+				}else{
+					SearchResult<Subscribe> sr = null;
+					sr = SubscribeDao.queryAll(page, id, retStrFormatNowDate);
+					
+					request.setAttribute("sr", sr);
+					request.getRequestDispatcher("../main.jsp").forward(request,
+							response);
+				}
 			} else {
 				request.setAttribute("error", "用户名或密码错误");
 				request.setAttribute("id", id);
@@ -112,6 +124,17 @@ public class PCServlet extends HttpServlet {
 			pw.println("{\"message\":\"结果已保存\"}");
 			pw.close();
 			
+		}
+		else if(action.equals("delectDpartment"))
+		{
+			response.setContentType("application/x-javascript;charset=UTF-8");
+			
+			String id = request.getParameter("id");
+ 			DepartmentDao departmentDao = new DepartmentDao();
+ 		     departmentDao.delectById(id);
+ 			PrintWriter pw = response.getWriter();
+ 				pw.println("{\"message\":\"删除成功\"}");
+			pw.close();
 		}
 	}
 

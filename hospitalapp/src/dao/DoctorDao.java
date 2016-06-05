@@ -45,6 +45,20 @@ public class DoctorDao {
 		return sr;
 	}
 	
+	public SearchResult<Doctor> queryA(int page,int NumPerPage) {//查询所有用户
+		int totalcount=DBUtil.getTotalCount("select count(id) from doctor");
+		SearchResult<Doctor> sr=new SearchResult<Doctor>();
+		sr.setTotalcount(totalcount);
+		sr.setNumPerPage(NumPerPage);
+		page=page>sr.getTotalPage()?sr.getTotalPage():page;
+		sr.setNowpage(page);
+		String sql="select * from doctor   where  limit "+(page-1)*NumPerPage+","+NumPerPage+" ";
+		
+		List<Doctor> list=this.getList(sql);
+		sr.setList(list);
+		return sr;
+	}
+	
 	public SearchResult<Doctor> queryById(String id ,int page,int NumPerPage) {//查询所有用户
 		int totalcount=DBUtil.getTotalCount("select count(id) from doctor where id ='"+id+"'");
 		SearchResult<Doctor> sr=new SearchResult<Doctor>();

@@ -50,4 +50,18 @@ public class DepartmentDao {
 		}
 		return null;
 	}
+	public void  delectById(String id){   
+		Connection conn=DBUtil.getConnection();
+		String sql="delect form department where id="+id+" ";
+		Statement st=null;
+		ResultSet rs=null;
+		try {
+			st=conn.createStatement();
+			st.executeUpdate(sql.toString());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBUtil.close(conn, st, rs);
+		}
+	}
 }
